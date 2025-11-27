@@ -1,0 +1,19 @@
+{% extends 'laboratorio/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="alert alert-danger shadow">
+            <h2 class="display-6">☢️ ¿Iniciar secuencia de autodestrucción?</h2>
+            <p class="lead">Estás a punto de eliminar el invento: <strong>{{ invento.nombre }}</strong>.</p>
+            <p>Esta acción no se puede deshacer (y podría causar un agujero negro).</p>
+            
+            <form method="post">
+                {% csrf_token %} <!-- Seguridad -->
+                <button type="submit" class="btn btn-danger btn-lg">🔥 SÍ, ELIMINAR</button>
+                <a href="{% url 'lista_inventos' %}" class="btn btn-secondary btn-lg">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

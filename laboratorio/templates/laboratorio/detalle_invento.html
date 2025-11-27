@@ -1,0 +1,93 @@
+{% extends 'laboratorio/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <h2 class="h4 m-0">{{ invento.nombre }}</h2>
+                <span class="badge bg-secondary">{{ invento.fecha_fabricacion }}</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- Descripción -->
+                    <div class="col-md-8">
+                        <h5 class="text-muted">Descripción del Artefacto</h5>
+                        <p class="lead">{{ invento.descripcion }}</p>
+                    </div>
+                    <!-- Foto lateral -->
+                    <div class="col-md-4 text-center">
+                        {% if invento.foto %}
+                            <img src="{{ invento.foto.url }}" class="img-fluid rounded shadow border border-secondary">
+                        {% else %}
+                            <div class="p-4 bg-light border rounded text-muted">
+                                <i class="bi bi-camera-video-off display-4"></i>
+                                <br><small>Sin foto</small>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <h5 class="mt-4"><i class="bi bi-tools"></i> Componentes Requeridos</h5>
+                {% if invento.receta_set.all %}
+                    <ul class="list-group">
+                        {% for item in invento.receta_set.all %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ item.componente.nombre }}</span>
+                            <span class="badge bg-primary rounded-pill">{{ item.cantidad }} u.</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <div class="alert alert-warning">Este invento no tiene componentes registrados.</div>
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'lista_inventos' %}" class="btn btn-outline-secondary">Volver al listado</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Columna Derecha (Probabilidad y Botón Rojo) -->
+    <div class="col-md-4">
+        <div class="card mb-4 text-center border-0 shadow-sm">
+            <div class="card-body">
+                <h5>Probabilidad de Éxito</h5>
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar 
+                        {% if invento.probabilidad_exito < 20 %}bg-danger
+                        {% elif invento.probabilidad_exito > 80 %}bg-success
+                        {% else %}bg-warning text-dark{% endif %}" 
+                        role="progressbar" 
+                        style="width: {{ invento.probabilidad_exito }}%;">
+                        {{ invento.probabilidad_exito }}%
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if invento.protocoloautodestruccion %}
+        <div class="card border-danger shadow">
+            <div class="card-header bg-danger text-white fw-bold">
+                ☢️ PROTOCOLO OMEGA
+            </div>
+            <div class="card-body text-center bg-light">
+                <p class="small text-danger fw-bold">INFORMACIÓN CLASIFICADA</p>
+                <ul class="list-unstyled">
+                    <li><strong>Código:</strong> <code>{{ invento.protocoloautodestruccion.codigo_activacion }}</code></li>
+                    <li><strong>Cuenta atrás:</strong> {{ invento.protocoloautodestruccion.segundos_cuenta_regresiva }} seg.</li>
+                    <li class="mt-2 fst-italic">"{{ invento.protocoloautodestruccion.mensaje_despedida }}"</li>
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="d-grid gap-2 mt-4">
+            <a href="{% url 'editar_invento' invento.id %}" class="btn btn-warning">🛠️ Recalibrar</a>
+            <a href="{% url 'eliminar_invento' invento.id %}" class="btn btn-outline-danger">💣 Destruir</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

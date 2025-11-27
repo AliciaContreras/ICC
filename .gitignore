@@ -1,0 +1,34 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Django ---
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# --- Entornos Virtuales ---
+# Nombres comunes de carpetas de entorno virtual
+venv/
+env/
+.env
+.venv/
+doc/
+
+# --- IDEs y Editores ---
+.vscode/
+.idea/
+*.swp
+
+# --- Sistema Operativo ---
+.DS_Store
+Thumbs.db
+
+# --- Variables de Entorno (Secretos) ---
+.env
+
+# --- Excepciones (Cosas que SÍ queremos subir) ---
+# Aseguramos que se suban los fixtures (tus backups de datos json)
+!*.json

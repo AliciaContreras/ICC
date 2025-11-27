@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="dark"> <!-- Activamos Dark Mode de Bootstrap -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ I.C.C. - Acceso Restringido</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Fuentes: Orbitron (Tech) y Share Tech Mono (Consola) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-green: #39ff14;
+            --neon-purple: #bc13fe;
+            --toxic-yellow: #e7b416;
+            --dark-bg: #0a0a0a;
+            --panel-bg: #161616;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            background-image: 
+                linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px; /* Efecto grilla */
+            font-family: 'Share Tech Mono', monospace;
+            color: #ddd;
+        }
+
+        /* Títulos Impactantes */
+        h1, h2, h3, h4, h5, .navbar-brand, .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Navbar Estilo Panel de Control */
+        .navbar {
+            background: rgba(22, 22, 22, 0.95);
+            border-bottom: 2px solid var(--neon-purple);
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.3);
+        }
+
+        .navbar-brand {
+            color: var(--neon-green) !important;
+            text-shadow: 0 0 5px var(--neon-green);
+            font-weight: 900;
+        }
+
+        /* Tarjetas Estilo Sci-Fi */
+        .card {
+            background-color: var(--panel-bg);
+            border: 1px solid #333;
+            border-left: 4px solid var(--neon-purple);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--neon-green);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+        }
+
+        .card-header {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #333;
+        }
+
+        /* Botones Neón */
+        .btn-primary {
+            background-color: transparent;
+            border: 2px solid var(--neon-purple);
+            color: var(--neon-purple);
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 0 5px var(--neon-purple);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--neon-purple);
+            color: #fff;
+            box-shadow: 0 0 20px var(--neon-purple);
+        }
+
+        .btn-success {
+            background-color: transparent;
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            box-shadow: 0 0 5px var(--neon-green);
+        }
+
+        .btn-success:hover {
+            background-color: var(--neon-green);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-green);
+        }
+
+        /* Badges brillantes */
+        .badge {
+            font-family: 'Orbitron', sans-serif;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark mb-0 sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'lista_inventos' %}">
+                <i class="bi bi-radioactive"></i> I.C.C.
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'lista_inventos' %}">CENTRO DE MANDO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_cientificos' %}">PERSONAL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'lista_materiales' %}">BODEGA</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    {% if user.is_authenticated %}
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                👨‍🔬 {{ user.username|upper }}
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li>
+                                    <form action="{% url 'logout' %}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" class="dropdown-item text-danger">ABORTAR SESIÓN</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-sm btn-warning">ACCESO DE SEGURIDAD</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor fluido para permitir Hero a ancho completo, pero contenido centrado -->
+    <main class="flex-grow-1"></main>
+        {% block hero %}{% endblock %}
+        
+        <div class="container py-5">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-lg border-0" role="alert" style="background: #222; border-left: 5px solid var(--toxic-yellow);">
+                        <i class="bi bi-terminal-fill me-2 text-warning"></i> <span class="font-monospace">{{ message }}</span>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer class="text-center py-4 mt-auto" style="background: #000; border-top: 1px solid #333;">
+        <small class="text-muted font-monospace">
+            SISTEMA OPERATIVO I.Q.S. v5.0 // "La ciencia no pregunta por qué, sino por qué no."
+        </small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

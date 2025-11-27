@@ -1,0 +1,172 @@
+{% extends 'laboratorio/base.html' %}
+
+{% load static %}
+
+{% block hero %}
+<!-- HERO SECTION: SOLO VISIBLE EN ESTA PÁGINA -->
+<div class="position-relative p-5 text-center text-white mb-4" 
+     style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('{% static 'laboratorio/img/fondo_lab.png' %}'); background-size: cover; background-position: center; border-bottom: 3px solid var(--neon-green);">
+    
+    <div class="col-md-8 p-lg-5 mx-auto my-3">
+        <h1 class="display-1 fw-bold mb-3 hero-title" style="color: #fff; text-shadow: 0 0 20px var(--neon-green);">
+            INSTITUTO DE<br>
+            <span style="color: var(--neon-green);">CIENCIA CUESTIONABLE</span>
+        </h1>
+        <p class="lead font-monospace mb-4 text-info" style="text-shadow: 0 0 5px cyan;">
+            >>> SISTEMA DE GESTIÓN DE ARTEFACTOS PELIGROSOS E INESTABLES <<<
+        </p>
+        <div class="d-flex gap-3 justify-content-center lead fw-normal">
+            <a class="btn btn-success btn-lg px-4 py-3" href="{% url 'crear_invento' %}">
+                <i class="bi bi-radioactive"></i> REGISTRAR PROTOTIPO
+            </a>
+            <a class="btn btn-outline-light btn-lg px-4 py-3" href="{% url 'lista_cientificos' %}">
+                <i class="bi bi-people-fill"></i> VER PERSONAL
+            </a>
+        </div>
+    </div>
+    
+    <!-- Efecto decorativo -->
+    <div style="position: absolute; bottom: 10px; right: 20px; font-family: 'Share Tech Mono'; color: var(--neon-purple); opacity: 0.7;">
+        STATUS: CRÍTICO<br>
+        DÍAS SIN ACCIDENTES: 0
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Panel Principal -->
+    <div class="col-md-8">
+        <h3 class="text-white mb-4 border-bottom border-secondary pb-2">
+            <i class="bi bi-cpu-fill"></i> MATRIZ DE INVENTOS
+        </h3>
+
+        <!-- Tabla Estilizada -->
+        <div class="card shadow-lg mb-5">
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-dark table-hover align-middle mb-0" style="border-color: #333;">
+                        <thead style="background-color: #000;">
+                            <tr class="text-uppercase text-secondary small">
+                                <th class="ps-4">Evidencia</th>
+                                <th>Nombre Clave</th>
+                                <th>Fecha Inicio</th>
+                                <th>Probabilidad</th>
+                                <th class="text-end pe-4">Protocolos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for invento in inventos %}
+                            <tr>
+                                <td class="ps-4">
+                                    {% if invento.foto %}
+                                        <img src="{{ invento.foto.url }}" class="rounded border border-secondary" style="width: 50px; height: 50px; object-fit: cover;">
+                                    {% else %}
+                                        <div class="rounded border border-secondary d-flex align-items-center justify-content-center text-muted" style="width: 50px; height: 50px; background: #222;">
+                                            <i class="bi bi-question-lg"></i>
+                                        </div>
+                                    {% endif %}
+                                </td>
+                                <td class="fw-bold text-info font-monospace">{{ invento.nombre }}</td>
+                                <td class="text-muted small">{{ invento.fecha_fabricacion|date:"d/m/Y" }}</td>
+                                <td>
+                                    {% if invento.probabilidad_exito < 20 %}
+                                        <div class="progress" style="height: 20px; background: #330000;">
+                                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: {{ invento.probabilidad_exito }}%">{{ invento.probabilidad_exito }}%</div>
+                                        </div>
+                                    {% elif invento.probabilidad_exito > 80 %}
+                                        <div class="progress" style="height: 20px; background: #003300;">
+                                            <div class="progress-bar bg-success" style="width: {{ invento.probabilidad_exito }}%">{{ invento.probabilidad_exito }}%</div>
+                                        </div>
+                                    {% else %}
+                                        <div class="progress" style="height: 20px; background: #333;">
+                                            <div class="progress-bar bg-warning text-dark" style="width: {{ invento.probabilidad_exito }}%">{{ invento.probabilidad_exito }}%</div>
+                                        </div>
+                                    {% endif %}
+                                </td>
+                                <td class="text-end pe-4">
+                                    <div class="btn-group" role="group">
+                                        <a href="{% url 'detalle_invento' invento.id %}" class="btn btn-sm btn-outline-info" title="Analizar">
+                                            <i class="bi bi-search"></i>
+                                        </a>
+                                        <a href="{% url 'editar_invento' invento.id %}" class="btn btn-sm btn-outline-warning" title="Recalibrar">
+                                            <i class="bi bi-wrench"></i>
+                                        </a>
+                                        <a href="{% url 'eliminar_invento' invento.id %}" class="btn btn-sm btn-outline-danger" title="Neutralizar">
+                                            <i class="bi bi-radioactive"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center py-5 text-muted">
+                                    <i class="bi bi-clipboard-x display-4"></i>
+                                    <p class="mt-2 font-monospace">NO HAY ACTIVIDAD REGISTRADA.</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SQL Console -->
+        <div class="p-3" style="background-color: #000; border: 1px solid #333; border-left: 3px solid var(--neon-green); font-family: 'Courier New', monospace;">
+            <h6 class="text-success mb-2">> SYSTEM_LOG_AUDIT.exe -running</h6>
+            <ul class="list-unstyled small mb-0 text-secondary">
+                {% for item in recientes_sql %}
+                    <li><span class="text-warning">[{{ item.fecha_fabricacion|date:"d/m/Y" }}]</span> DETECTADO OBJETO: {{ item.nombre|upper }} (ID: {{ item.id }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Panel Lateral -->
+    <div class="col-md-4">
+        <!-- Stats Card -->
+        <div class="card mb-4" style="border-color: var(--neon-purple);">
+            <div class="card-header text-white fw-bold d-flex justify-content-between align-items-center" style="background: var(--neon-purple);">
+                <span><i class="bi bi-graph-up"></i> ESTADÍSTICAS</span>
+                <span class="badge bg-dark">VIVO</span>
+            </div>
+            <ul class="list-group list-group-flush list-group-dark">
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-secondary">
+                    <span><i class="bi bi-exclamation-triangle text-danger"></i> Peligro Biológico</span>
+                    <span class="badge bg-danger rounded-pill">{{ peligrosos.count }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-secondary">
+                    <span><i class="bi bi-lightning-charge text-warning"></i> Inestables</span>
+                    <span class="badge bg-warning text-dark rounded-pill">{{ inestables.count }}</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Top Scientists -->
+        <div class="card border-0">
+            <div class="card-header bg-transparent border-0 text-info fw-bold ps-0">
+                <i class="bi bi-star-fill"></i> EMPLEADOS DEL MES
+            </div>
+            <div class="card-body p-0">
+                {% for c in cientificos %}
+                <div class="d-flex align-items-center mb-3 p-2 rounded hover-effect" style="background: #1a1a1a;">
+                    {% if c.foto %}
+                        <img src="{{ c.foto.url }}" class="rounded-circle me-3" style="width: 40px; height: 40px; object-fit: cover; border: 2px solid cyan;">
+                    {% else %}
+                        <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white" style="width: 40px; height: 40px;">
+                            <i class="bi bi-person"></i>
+                        </div>
+                    {% endif %}
+                    <div class="flex-grow-1">
+                        <h6 class="m-0 text-light">{{ c.nombre }}</h6>
+                        <small class="text-muted">{{ c.especialidad }}</small>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">{{ c.num_esbirros }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

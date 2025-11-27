@@ -1,0 +1,1366 @@
+[
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 1,
+    "fields": {
+        "nombre": "Gomitas Radiactivas",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": true,
+        "stock_gramos": "500.50"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 2,
+    "fields": {
+        "nombre": "Plutonio Casero",
+        "nivel_peligro": "EXTREMO",
+        "es_ilegal": true,
+        "stock_gramos": "500.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 3,
+    "fields": {
+        "nombre": "Baba de Alien",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": true,
+        "stock_gramos": "120.50"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 4,
+    "fields": {
+        "nombre": "Ectoplasma",
+        "nivel_peligro": "MEDIO",
+        "es_ilegal": false,
+        "stock_gramos": "15.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 5,
+    "fields": {
+        "nombre": "Veneno de Cobra",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": true,
+        "stock_gramos": "5.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 6,
+    "fields": {
+        "nombre": "Pelo de Yeti",
+        "nivel_peligro": "BAJO",
+        "es_ilegal": false,
+        "stock_gramos": "1000.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 7,
+    "fields": {
+        "nombre": "Antimateria Líquida",
+        "nivel_peligro": "EXTREMO",
+        "es_ilegal": true,
+        "stock_gramos": "0.50"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 8,
+    "fields": {
+        "nombre": "Gas de la Risa Permanente",
+        "nivel_peligro": "MEDIO",
+        "es_ilegal": true,
+        "stock_gramos": "200.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 9,
+    "fields": {
+        "nombre": "Polvo de Hadas (Alucinógeno)",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": true,
+        "stock_gramos": "50.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 10,
+    "fields": {
+        "nombre": "Sangre de Dragón",
+        "nivel_peligro": "MEDIO",
+        "es_ilegal": true,
+        "stock_gramos": "750.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 11,
+    "fields": {
+        "nombre": "Mercurio Rojo",
+        "nivel_peligro": "EXTREMO",
+        "es_ilegal": true,
+        "stock_gramos": "100.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 12,
+    "fields": {
+        "nombre": "Ácido Sulfúrico Casero",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": false,
+        "stock_gramos": "5000.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 13,
+    "fields": {
+        "nombre": "Esporas de Moho Gigante",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": true,
+        "stock_gramos": "30.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 14,
+    "fields": {
+        "nombre": "ADN de Dinosaurio",
+        "nivel_peligro": "EXTREMO",
+        "es_ilegal": true,
+        "stock_gramos": "2.00"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 15,
+    "fields": {
+        "nombre": "Gomitas de Osito (Caducadas)",
+        "nivel_peligro": "BAJO",
+        "es_ilegal": false,
+        "stock_gramos": "50000.00"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 2,
+    "fields": {
+        "nombre": "Rick Sanchez",
+        "especialidad": "Realidades Alternas",
+        "biografia": "El hombre más inteligente del universo.",
+        "foto": "cientificos/rick-sanchez-character-analysis-not-a-nihilist-but-a-cynic.jpg"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 3,
+    "fields": {
+        "nombre": "Dr. Heinz Doofenshmirtz",
+        "especialidad": "Inadores",
+        "biografia": "Gobernante del Área Limítrofe (casi).",
+        "foto": "cientificos/Heinz-Doofenshmirtz.Phineas-and-Ferb.webp"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 4,
+    "fields": {
+        "nombre": "Dr. Neo Cortex",
+        "especialidad": "Mutaciones Genéticas",
+        "biografia": "Enemigo de los Bandicoots.",
+        "foto": "cientificos/wp8076586.jpg"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 5,
+    "fields": {
+        "nombre": "Dexter",
+        "especialidad": "Ingeniería Mecánica",
+        "biografia": "El niño genio con un laboratorio secreto.",
+        "foto": "cientificos/Dexter.webp"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 6,
+    "fields": {
+        "nombre": "Dr. Emmet Brown",
+        "especialidad": "Viajes en el Tiempo",
+        "biografia": "¡Gran Scott!",
+        "foto": "cientificos/Emmett_Brown_2.webp"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 7,
+    "fields": {
+        "nombre": "Dr. Victor Frankenstein",
+        "especialidad": "Reanimación Biológica",
+        "biografia": "Obsesionado con coser partes de gente. Grita mucho '¡ESTÁ VIVO!'.",
+        "foto": "cientificos/PodcastCover_Ariel-for-the-DrVictorFrank-1024x1024.jpg"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 8,
+    "fields": {
+        "nombre": "Profesor Hubert Farnsworth",
+        "especialidad": "Física Cuántica Absurda",
+        "biografia": "Dueño de Planet Express. Inventa cosas inútiles o apocalípticas.",
+        "foto": "cientificos/professor-farnsworth-futurama.webp"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 9,
+    "fields": {
+        "nombre": "Dr. Jekyll",
+        "especialidad": "Química de la Personalidad",
+        "biografia": "Tiene serios problemas de ira y cambios de humor repentinos.",
+        "foto": "cientificos/Dr-Jekyll-and-Mr-Hyde-Fredric-March.webp"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 10,
+    "fields": {
+        "nombre": "Dr. Malito",
+        "especialidad": "Dominación Mundial",
+        "biografia": "Pide rescates de 1 millón de dólares. Tiene un gato sin pelo.",
+        "foto": "cientificos/doctor_malito.jpg"
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 3,
+    "fields": {
+        "cientifico": 2,
+        "nombre": "Morty 7",
+        "tiene_joroba": true,
+        "nivel_lealtad": 6
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 4,
+    "fields": {
+        "cientifico": 2,
+        "nombre": "Norm 37",
+        "tiene_joroba": false,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 5,
+    "fields": {
+        "cientifico": 3,
+        "nombre": "Minion Kevin 56",
+        "tiene_joroba": true,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 6,
+    "fields": {
+        "cientifico": 3,
+        "nombre": "Robot X-20 56",
+        "tiene_joroba": false,
+        "nivel_lealtad": 8
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 7,
+    "fields": {
+        "cientifico": 4,
+        "nombre": "Igor 34",
+        "tiene_joroba": true,
+        "nivel_lealtad": 7
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 8,
+    "fields": {
+        "cientifico": 4,
+        "nombre": "Morty 92",
+        "tiene_joroba": true,
+        "nivel_lealtad": 4
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 9,
+    "fields": {
+        "cientifico": 5,
+        "nombre": "Norm 36",
+        "tiene_joroba": false,
+        "nivel_lealtad": 10
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 10,
+    "fields": {
+        "cientifico": 5,
+        "nombre": "Minion Kevin 82",
+        "tiene_joroba": false,
+        "nivel_lealtad": 6
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 11,
+    "fields": {
+        "cientifico": 5,
+        "nombre": "Robot X-20 51",
+        "tiene_joroba": false,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 12,
+    "fields": {
+        "cientifico": 6,
+        "nombre": "Minion Bob 97",
+        "tiene_joroba": false,
+        "nivel_lealtad": 4
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 13,
+    "fields": {
+        "cientifico": 6,
+        "nombre": "Norm 31",
+        "tiene_joroba": false,
+        "nivel_lealtad": 8
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 14,
+    "fields": {
+        "cientifico": 2,
+        "nombre": "Doom-Bot Defectuoso-868",
+        "tiene_joroba": true,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 15,
+    "fields": {
+        "cientifico": 2,
+        "nombre": "Asistente Genérico-613",
+        "tiene_joroba": false,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 16,
+    "fields": {
+        "cientifico": 2,
+        "nombre": "Doom-Bot Defectuoso-903",
+        "tiene_joroba": true,
+        "nivel_lealtad": 1
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 17,
+    "fields": {
+        "cientifico": 2,
+        "nombre": "Bob-884",
+        "tiene_joroba": true,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 18,
+    "fields": {
+        "cientifico": 2,
+        "nombre": "Igor-411",
+        "tiene_joroba": true,
+        "nivel_lealtad": 1
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 19,
+    "fields": {
+        "cientifico": 3,
+        "nombre": "Bob-745",
+        "tiene_joroba": true,
+        "nivel_lealtad": 9
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 20,
+    "fields": {
+        "cientifico": 3,
+        "nombre": "Kevin (El Becario)-478",
+        "tiene_joroba": false,
+        "nivel_lealtad": 8
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 21,
+    "fields": {
+        "cientifico": 3,
+        "nombre": "Rocksteady-871",
+        "tiene_joroba": true,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 22,
+    "fields": {
+        "cientifico": 3,
+        "nombre": "Rocksteady-725",
+        "tiene_joroba": true,
+        "nivel_lealtad": 3
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 23,
+    "fields": {
+        "cientifico": 3,
+        "nombre": "Sujeto #42-732",
+        "tiene_joroba": true,
+        "nivel_lealtad": 10
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 24,
+    "fields": {
+        "cientifico": 4,
+        "nombre": "Lurch-880",
+        "tiene_joroba": true,
+        "nivel_lealtad": 10
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 25,
+    "fields": {
+        "cientifico": 4,
+        "nombre": "El Jorobado-244",
+        "tiene_joroba": true,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 26,
+    "fields": {
+        "cientifico": 4,
+        "nombre": "El Jorobado-301",
+        "tiene_joroba": true,
+        "nivel_lealtad": 9
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 27,
+    "fields": {
+        "cientifico": 4,
+        "nombre": "Número 2-151",
+        "tiene_joroba": true,
+        "nivel_lealtad": 4
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 28,
+    "fields": {
+        "cientifico": 6,
+        "nombre": "Stuart-641",
+        "tiene_joroba": true,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 29,
+    "fields": {
+        "cientifico": 6,
+        "nombre": "Gunter-926",
+        "tiene_joroba": true,
+        "nivel_lealtad": 8
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 30,
+    "fields": {
+        "cientifico": 6,
+        "nombre": "Frankenstein Jr.-745",
+        "tiene_joroba": true,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 31,
+    "fields": {
+        "cientifico": 5,
+        "nombre": "Bebop-149",
+        "tiene_joroba": true,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 32,
+    "fields": {
+        "cientifico": 5,
+        "nombre": "Cerebro-406",
+        "tiene_joroba": true,
+        "nivel_lealtad": 8
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 33,
+    "fields": {
+        "cientifico": 5,
+        "nombre": "Igor-151",
+        "tiene_joroba": true,
+        "nivel_lealtad": 10
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 34,
+    "fields": {
+        "cientifico": 7,
+        "nombre": "Asistente Genérico-573",
+        "tiene_joroba": true,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 35,
+    "fields": {
+        "cientifico": 7,
+        "nombre": "Rocksteady-858",
+        "tiene_joroba": true,
+        "nivel_lealtad": 6
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 36,
+    "fields": {
+        "cientifico": 7,
+        "nombre": "Kevin (El Becario)-812",
+        "tiene_joroba": false,
+        "nivel_lealtad": 10
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 37,
+    "fields": {
+        "cientifico": 8,
+        "nombre": "Sujeto #42-974",
+        "tiene_joroba": false,
+        "nivel_lealtad": 10
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 38,
+    "fields": {
+        "cientifico": 8,
+        "nombre": "Bob-369",
+        "tiene_joroba": true,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 39,
+    "fields": {
+        "cientifico": 8,
+        "nombre": "Kronk-145",
+        "tiene_joroba": true,
+        "nivel_lealtad": 7
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 40,
+    "fields": {
+        "cientifico": 9,
+        "nombre": "Kevin (El Becario)-499",
+        "tiene_joroba": true,
+        "nivel_lealtad": 9
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 41,
+    "fields": {
+        "cientifico": 9,
+        "nombre": "Asistente Genérico-668",
+        "tiene_joroba": false,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 42,
+    "fields": {
+        "cientifico": 9,
+        "nombre": "Grognak-730",
+        "tiene_joroba": true,
+        "nivel_lealtad": 3
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 43,
+    "fields": {
+        "cientifico": 9,
+        "nombre": "Frankenstein Jr.-180",
+        "tiene_joroba": true,
+        "nivel_lealtad": 7
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 44,
+    "fields": {
+        "cientifico": 9,
+        "nombre": "Kronk-989",
+        "tiene_joroba": false,
+        "nivel_lealtad": 3
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 45,
+    "fields": {
+        "cientifico": 10,
+        "nombre": "Bob-503",
+        "tiene_joroba": true,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 46,
+    "fields": {
+        "cientifico": 10,
+        "nombre": "Kronk-722",
+        "tiene_joroba": true,
+        "nivel_lealtad": 10
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 47,
+    "fields": {
+        "cientifico": 10,
+        "nombre": "Número 2-280",
+        "tiene_joroba": true,
+        "nivel_lealtad": 3
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 48,
+    "fields": {
+        "cientifico": 10,
+        "nombre": "Sujeto #42-939",
+        "tiene_joroba": true,
+        "nivel_lealtad": 2
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 49,
+    "fields": {
+        "cientifico": 10,
+        "nombre": "El Jorobado-568",
+        "tiene_joroba": true,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 1,
+    "fields": {
+        "nombre": "Batería de Litio"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 2,
+    "fields": {
+        "nombre": "Uranio"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 3,
+    "fields": {
+        "nombre": "Cinta Americana"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 4,
+    "fields": {
+        "nombre": "Tornillo 5mm"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 5,
+    "fields": {
+        "nombre": "Microchip"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 6,
+    "fields": {
+        "nombre": "Gema de Poder"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 7,
+    "fields": {
+        "nombre": "Plátano"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 8,
+    "fields": {
+        "nombre": "Láser"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 9,
+    "fields": {
+        "nombre": "Bobina de Tesla"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 10,
+    "fields": {
+        "nombre": "Tubo de Vacío"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 11,
+    "fields": {
+        "nombre": "Chip de IA Rebelde"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 12,
+    "fields": {
+        "nombre": "Engranaje Oxidado"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 13,
+    "fields": {
+        "nombre": "Lente de Cristal Puro"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 14,
+    "fields": {
+        "nombre": "Batería Nuclear"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 15,
+    "fields": {
+        "nombre": "Brazo Robótico"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 16,
+    "fields": {
+        "nombre": "Antena Parabólica"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 17,
+    "fields": {
+        "nombre": "Imán de Neodimio"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 18,
+    "fields": {
+        "nombre": "Botón Rojo Grande"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 19,
+    "fields": {
+        "nombre": "Condensador de Fluzo"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 20,
+    "fields": {
+        "nombre": "Fusible Quemado"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 1,
+    "fields": {
+        "nombre": "Desintegra-inador",
+        "descripcion": "Dispara un rayo que hace desaparecer cosas (principalmente gnomos).",
+        "probabilidad_exito": 15,
+        "foto": "inventos/Phineas_e_Ferb_Miss_o_Marvel_Imagem_731.webp",
+        "fecha_fabricacion": "2025-11-26"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 2,
+    "fields": {
+        "nombre": "Pistola de Portales",
+        "descripcion": "Viaja entre dimensiones.",
+        "probabilidad_exito": 50,
+        "foto": "inventos/jarryd-muir-jarryd-muir-rick-and-morty-portal-gun-thumbnail-2.jpg",
+        "fecha_fabricacion": "2025-11-26"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 3,
+    "fields": {
+        "nombre": "Inador de Fuego",
+        "descripcion": "Quema cosas.",
+        "probabilidad_exito": 85,
+        "foto": "inventos/Dr.-Doofenshmirtz-in-Phineas-and-Ferb.jpg",
+        "fecha_fabricacion": "2025-11-26"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 4,
+    "fields": {
+        "nombre": "Rayo Evolucionador",
+        "descripcion": "Convierte animales en mutantes.",
+        "probabilidad_exito": 40,
+        "foto": "inventos/pngtree-lightning-strike-on-a-black-background-picture-image_2664765.png",
+        "fecha_fabricacion": "2025-11-26"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 5,
+    "fields": {
+        "nombre": "DeLorean Volador",
+        "descripcion": "A donde vamos no necesitamos carreteras.",
+        "probabilidad_exito": 95,
+        "foto": "inventos/d25j1c6-85548d02-0e71-4182-845c-9e0c3e7af1a8.jpg",
+        "fecha_fabricacion": "2025-11-26"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 6,
+    "fields": {
+        "nombre": "Traje de Combate",
+        "descripcion": "Resiste explosiones.",
+        "probabilidad_exito": 70,
+        "foto": "inventos/90ed2900a70ea68664c57595368d21d0c69d1145r1-380-404v2_hq.jpg",
+        "fecha_fabricacion": "2025-11-26"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 7,
+    "fields": {
+        "nombre": "El Monstruo",
+        "descripcion": "Un ser humano hecho de partes recicladas.",
+        "probabilidad_exito": 45,
+        "foto": "inventos/d7fbe55a10584a91ad45482bb833fa8c.webp",
+        "fecha_fabricacion": "2023-01-01"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 8,
+    "fields": {
+        "nombre": "Máquina del Tiempo DeLorean",
+        "descripcion": "Funciona con basura, viaja a 1955.",
+        "probabilidad_exito": 88,
+        "foto": "inventos/f3858adf3f8e280295c97e5158fc0aa8.jpg",
+        "fecha_fabricacion": "2023-01-01"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 9,
+    "fields": {
+        "nombre": "Rayo de la Muerte (Láser)",
+        "descripcion": "Para escribir el nombre en la luna.",
+        "probabilidad_exito": 99,
+        "foto": "inventos/rayo-muerte-1.jpg",
+        "fecha_fabricacion": "2023-01-01"
+    }
+},
+{
+    "model": "laboratorio.invento",
+    "pk": 10,
+    "fields": {
+        "nombre": "Oloroscopio",
+        "descripcion": "Permite oler cosas a distancias astronómicas.",
+        "probabilidad_exito": 10,
+        "foto": "inventos/600px-Smell-O-Scope.png",
+        "fecha_fabricacion": "2023-01-01"
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 1,
+    "fields": {
+        "invento": 1,
+        "componente": 1,
+        "cantidad": 2
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 2,
+    "fields": {
+        "invento": 2,
+        "componente": 2,
+        "cantidad": 2
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 3,
+    "fields": {
+        "invento": 2,
+        "componente": 3,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 4,
+    "fields": {
+        "invento": 3,
+        "componente": 4,
+        "cantidad": 8
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 5,
+    "fields": {
+        "invento": 3,
+        "componente": 2,
+        "cantidad": 5
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 6,
+    "fields": {
+        "invento": 4,
+        "componente": 2,
+        "cantidad": 3
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 7,
+    "fields": {
+        "invento": 4,
+        "componente": 6,
+        "cantidad": 3
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 8,
+    "fields": {
+        "invento": 5,
+        "componente": 2,
+        "cantidad": 6
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 9,
+    "fields": {
+        "invento": 5,
+        "componente": 14,
+        "cantidad": 8
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 10,
+    "fields": {
+        "invento": 6,
+        "componente": 3,
+        "cantidad": 10
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 11,
+    "fields": {
+        "invento": 6,
+        "componente": 6,
+        "cantidad": 7
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 12,
+    "fields": {
+        "invento": 2,
+        "componente": 8,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 13,
+    "fields": {
+        "invento": 7,
+        "componente": 6,
+        "cantidad": 9
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 14,
+    "fields": {
+        "invento": 7,
+        "componente": 20,
+        "cantidad": 8
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 15,
+    "fields": {
+        "invento": 7,
+        "componente": 11,
+        "cantidad": 7
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 16,
+    "fields": {
+        "invento": 8,
+        "componente": 3,
+        "cantidad": 9
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 17,
+    "fields": {
+        "invento": 8,
+        "componente": 2,
+        "cantidad": 9
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 18,
+    "fields": {
+        "invento": 8,
+        "componente": 9,
+        "cantidad": 3
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 19,
+    "fields": {
+        "invento": 9,
+        "componente": 10,
+        "cantidad": 7
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 20,
+    "fields": {
+        "invento": 9,
+        "componente": 12,
+        "cantidad": 2
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 21,
+    "fields": {
+        "invento": 9,
+        "componente": 16,
+        "cantidad": 10
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 22,
+    "fields": {
+        "invento": 10,
+        "componente": 13,
+        "cantidad": 7
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 23,
+    "fields": {
+        "invento": 10,
+        "componente": 4,
+        "cantidad": 6
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 24,
+    "fields": {
+        "invento": 10,
+        "componente": 3,
+        "cantidad": 7
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 25,
+    "fields": {
+        "invento": 3,
+        "componente": 18,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 26,
+    "fields": {
+        "invento": 4,
+        "componente": 16,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 27,
+    "fields": {
+        "invento": 5,
+        "componente": 19,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 29,
+    "fields": {
+        "invento": 1,
+        "componente": 13,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 30,
+    "fields": {
+        "invento": 2,
+        "componente": 4,
+        "cantidad": 10
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 31,
+    "fields": {
+        "invento": 8,
+        "componente": 19,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 32,
+    "fields": {
+        "invento": 9,
+        "componente": 9,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 33,
+    "fields": {
+        "invento": 10,
+        "componente": 15,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 34,
+    "fields": {
+        "invento": 7,
+        "componente": 15,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 35,
+    "fields": {
+        "invento": 3,
+        "componente": 18,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 1,
+    "fields": {
+        "codigo_activacion": "PERRY",
+        "mensaje_despedida": "¡Maldito seas, Perry el Ornitorrinco!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 2,
+    "fields": {
+        "codigo_activacion": "CODE-3878",
+        "mensaje_despedida": "¡Boom!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 3,
+    "fields": {
+        "codigo_activacion": "CODE-9923",
+        "mensaje_despedida": "¡Boom!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 4,
+    "fields": {
+        "codigo_activacion": "CODE-4383",
+        "mensaje_despedida": "¡Boom!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 5,
+    "fields": {
+        "codigo_activacion": "CODE-7791",
+        "mensaje_despedida": "¡Boom!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 6,
+    "fields": {
+        "codigo_activacion": "CODE-8187",
+        "mensaje_despedida": "¡Boom!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 7,
+    "fields": {
+        "codigo_activacion": "DANGER-619",
+        "mensaje_despedida": "¡No debiste presionar eso!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 8,
+    "fields": {
+        "codigo_activacion": "DANGER-482",
+        "mensaje_despedida": "¡No debiste presionar eso!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 9,
+    "fields": {
+        "codigo_activacion": "DANGER-688",
+        "mensaje_despedida": "¡No debiste presionar eso!"
+    }
+},
+{
+    "model": "laboratorio.protocoloautodestruccion",
+    "pk": 10,
+    "fields": {
+        "codigo_activacion": "DANGER-337",
+        "mensaje_despedida": "¡No debiste presionar eso!"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$ornHGoIbqUjoyYZ9C1pjx2$Ct3JxdXqL0eX6EwQRNf6aZMbLDsfojvnAApqfFPJa3Y=",
+        "last_login": "2025-11-26T04:16:13.607Z",
+        "is_superuser": true,
+        "username": "root",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-11-26T00:11:26.089Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

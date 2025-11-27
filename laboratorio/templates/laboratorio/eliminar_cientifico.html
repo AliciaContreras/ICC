@@ -1,0 +1,19 @@
+{% extends 'laboratorio/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 text-center">
+        <div class="alert alert-dark border-danger shadow">
+            <h2 class="display-6 text-danger"><i class="bi bi-exclamation-octagon-fill"></i> ¿Despedir Personal?</h2>
+            <p class="lead">Estás a punto de eliminar el expediente de: <strong>{{ cientifico.nombre }}</strong>.</p>
+            <p class="small text-muted">Nota: Sus esbirros también serán liberados (o eliminados, según configuración).</p>
+            
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-lg">🔥 CONFIRMAR DESPIDO</button>
+                <a href="{% url 'lista_cientificos' %}" class="btn btn-secondary btn-lg">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

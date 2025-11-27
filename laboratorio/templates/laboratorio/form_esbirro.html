@@ -1,0 +1,46 @@
+{% extends 'laboratorio/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-warning shadow">
+            <div class="card-header bg-warning text-dark">
+                <h4><i class="bi bi-robot"></i> {{ accion }} Esbirro</h4>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Científico a cargo</label>
+                        {{ form.cientifico }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Nombre del Ayudante</label>
+                        {{ form.nombre }}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Lealtad (1-10)</label>
+                            {{ form.nivel_lealtad }}
+                        </div>
+                        <div class="col-md-6 mb-3 d-flex align-items-center">
+                            <div class="form-check form-switch mt-4">
+                                {{ form.tiene_joroba }}
+                                <label class="form-check-label" for="{{ form.tiene_joroba.id_for_label }}">¿Tiene Joroba?</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="submit" class="btn btn-warning btn-lg">Confirmar Reclutamiento</button>
+                        <button type="button" class="btn btn-secondary" onclick="history.back()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
