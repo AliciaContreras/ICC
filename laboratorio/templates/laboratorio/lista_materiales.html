@@ -2,71 +2,69 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <!-- Le agregué hero-title solo para que la fuente coincida con las otras páginas -->
     <h2 class="text-warning hero-title"><i class="bi bi-box-seam-fill"></i> Bodega de Suministros</h2>
-
-    <!-- URL CORREGIDA: laboratorio:crear_material -->
-    <a href="{% url 'laboratorio:crear_material' %}" class="btn btn-success font-monospace">
-        <i class="bi bi-plus-circle"></i> Ingresar Material
-    </a>
+    
+    <!-- SOLO VISIBLE SI ESTÁ LOGUEADO -->
+    {% if user.is_authenticated %}
+        <a href="{% url 'laboratorio:crear_material' %}" class="btn btn-success font-monospace">
+            <i class="bi bi-plus-circle"></i> Ingresar Material
+        </a>
+    {% endif %}
 </div>
 
 <div class="row">
     {% for m in materiales %}
     <div class="col-md-4 mb-4">
-        <!-- LÓGICA DE COLORES SEGÚN PELIGRO -->
         {% with nivel=m.nivel_peligro %}
-        <div class="card h-100 shadow-sm"
-            style="background-color: #161616; border: 1px solid #333; border-left: 5px solid 
+            <div class="card h-100 shadow-sm" 
+                 style="background-color: #161616; border: 1px solid #333; border-left: 5px solid 
                  {% if nivel == 'BAJO' %}#198754{% elif nivel == 'MEDIO' %}#ffc107{% elif nivel == 'ALTO' %}#fd7e14{% else %}#dc3545{% endif %} !important;">
+                
+                <div class="card-header d-flex justify-content-between align-items-center bg-dark text-light border-bottom border-secondary">
+                    <strong class="text-uppercase font-monospace">{{ m.nombre }}</strong>
+                    
+                    {% if m.es_ilegal %}
+                        <span class="badge bg-danger">ILEGAL</span>
+                    {% else %}
+                        <span class="badge bg-success">LEGAL</span>
+                    {% endif %}
+                </div>
 
-            <div
-                class="card-header d-flex justify-content-between align-items-center bg-dark text-light border-bottom border-secondary">
-                <strong class="text-uppercase font-monospace">{{ m.nombre }}</strong>
-
-                <!-- Badge de Ilegalidad -->
-                {% if m.es_ilegal %}
-                <span class="badge bg-danger">ILEGAL</span>
-                {% else %}
-                <span class="badge bg-success">LEGAL</span>
-                {% endif %}
-            </div>
-
-            <div class="card-body text-light" style="background-color: #111;">
-                <div class="d-flex justify-content-between mb-3 font-monospace small">
-                    <span>Peligrosidad:</span>
-
-                    <!-- Badge de Nivel de Peligro -->
-                    <!-- Nota: Agregué estilo inline para 'bg-orange' por si no tienes esa clase en CSS -->
-                    <span class="badge text-dark" style="background-color: 
+                <div class="card-body text-light" style="background-color: #111;">
+                    <div class="d-flex justify-content-between mb-3 font-monospace small">
+                        <span>Peligrosidad:</span>
+                        
+                        <span class="badge text-dark" style="background-color: 
                             {% if nivel == 'BAJO' %}#198754
                             {% elif nivel == 'MEDIO' %}#ffc107
                             {% elif nivel == 'ALTO' %}#fd7e14
                             {% else %}#dc3545{% endif %}; color: #000 !important;">
-                        {{ m.get_nivel_peligro_display }}
-                    </span>
+                            {{ m.get_nivel_peligro_display }}
+                        </span>
+                    </div>
+                    
+                    <div class="text-center py-3 border rounded border-secondary" style="background: #0a0a0a;">
+                        <small class="text-muted d-block font-monospace">Stock Disponible</small>
+                        <h2 class="mb-0 font-monospace fw-bold
+                            {% if nivel == 'EXTREMO' %}text-danger{% else %}text-info{% endif %}"
+                            style="text-transform: none;"> 
+                            {{ m.stock_gramos }}g
+                        </h2>
+                    </div>
                 </div>
 
-                <div class="text-center py-3 border rounded border-secondary" style="background: #0a0a0a;">
-                    <small class="text-muted d-block font-monospace">Stock Disponible</small>
-                    <h2 class="mb-0 font-monospace fw-bold
-        {% if nivel == 'EXTREMO' %}text-danger{% else %}text-info{% endif %}" style="text-transform: none;">
-                        {{ m.stock_gramos }}g
-                    </h2>
-                </div>
+                <!-- SOLO VISIBLE SI ESTÁ LOGUEADO -->
+                {% if user.is_authenticated %}
+                    <div class="card-footer bg-dark border-top border-secondary d-flex justify-content-between">
+                        <a href="{% url 'laboratorio:editar_material' m.pk %}" class="btn btn-sm btn-outline-primary w-45">
+                            <i class="bi bi-pencil"></i> Editar
+                        </a>
+                        <a href="{% url 'laboratorio:eliminar_material' m.pk %}" class="btn btn-sm btn-outline-danger w-45">
+                            <i class="bi bi-trash"></i> Desechar
+                        </a>
+                    </div>
+                {% endif %}
             </div>
-
-            <div class="card-footer bg-dark border-top border-secondary d-flex justify-content-between">
-                <!-- URL CORREGIDA: laboratorio:editar_material -->
-                <a href="{% url 'laboratorio:editar_material' m.pk %}" class="btn btn-sm btn-outline-primary w-45">
-                    <i class="bi bi-pencil"></i> Editar
-                </a>
-                <!-- URL CORREGIDA: laboratorio:eliminar_material -->
-                <a href="{% url 'laboratorio:eliminar_material' m.pk %}" class="btn btn-sm btn-outline-danger w-45">
-                    <i class="bi bi-trash"></i> Desechar
-                </a>
-            </div>
-        </div>
         {% endwith %}
     </div>
     {% endfor %}

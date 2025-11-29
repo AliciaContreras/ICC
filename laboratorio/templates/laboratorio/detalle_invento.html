@@ -48,7 +48,6 @@
                 {% endif %}
             </div>
             <div class="card-footer bg-transparent border-secondary">
-                <!-- CORREGIDO: namespace 'laboratorio:' -->
                 <a href="{% url 'laboratorio:lista_inventos' %}" class="btn btn-outline-secondary btn-sm font-monospace">
                     <i class="bi bi-arrow-left"></i> VOLVER AL LISTADO
                 </a>
@@ -81,28 +80,27 @@
             <div class="card-header bg-danger text-white fw-bold font-monospace">
                 ☢️ PROTOCOLO OMEGA
             </div>
-            <!-- Ajustado a estilo Dark -->
             <div class="card-body text-center" style="background: #2a0000;">
                 <p class="small text-danger fw-bold font-monospace">>> INFORMACIÓN CLASIFICADA <<</p>
                 <ul class="list-unstyled text-light">
                     <li><strong>Código:</strong> <code class="text-warning fs-5">{{ invento.protocoloautodestruccion.codigo_activacion }}</code></li>
-                    <!-- Eliminada la línea de 'segundos' que no existe en el modelo -->
                     <li class="mt-3 fst-italic text-muted">"{{ invento.protocoloautodestruccion.mensaje_despedida }}"</li>
                 </ul>
             </div>
         </div>
         {% endif %}
 
-        <!-- Botones de Acción -->
-        <div class="d-grid gap-2 mt-4">
-            <!-- CORREGIDO: namespace 'laboratorio:' -->
-            <a href="{% url 'laboratorio:editar_invento' invento.id %}" class="btn btn-warning font-monospace fw-bold">
-                <i class="bi bi-wrench"></i> RECALIBRAR
-            </a>
-            <a href="{% url 'laboratorio:eliminar_invento' invento.id %}" class="btn btn-outline-danger font-monospace">
-                <i class="bi bi-radioactive"></i> DESTRUIR
-            </a>
-        </div>
+        <!-- SOLO VISIBLE SI ESTÁ LOGUEADO -->
+        {% if user.is_authenticated %}
+            <div class="d-grid gap-2 mt-4">
+                <a href="{% url 'laboratorio:editar_invento' invento.id %}" class="btn btn-warning font-monospace fw-bold">
+                    <i class="bi bi-wrench"></i> RECALIBRAR
+                </a>
+                <a href="{% url 'laboratorio:eliminar_invento' invento.id %}" class="btn btn-outline-danger font-monospace">
+                    <i class="bi bi-radioactive"></i> DESTRUIR
+                </a>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

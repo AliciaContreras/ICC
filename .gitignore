@@ -16,6 +16,7 @@ env/
 .env
 .venv/
 doc/
+myenv/
 
 # --- IDEs y Editores ---
 .vscode/

@@ -40,9 +40,13 @@
         <div class="card shadow" style="border-color: var(--neon-green);">
             <div class="card-header text-white d-flex justify-content-between align-items-center" style="background: rgba(57, 255, 20, 0.1);">
                 <h5 class="m-0 font-monospace"><i class="bi bi-robot"></i> ESBIRROS ASIGNADOS</h5>
-                <a href="{% url 'laboratorio:crear_esbirro_para_cientifico' cientifico.id %}" class="btn btn-sm btn-success fw-bold font-monospace">
-                    <i class="bi bi-plus-circle"></i> ASIGNAR NUEVO
-                </a>
+                
+                <!-- SOLO VISIBLE SI ESTÁ LOGUEADO -->
+                {% if user.is_authenticated %}
+                    <a href="{% url 'laboratorio:crear_esbirro_para_cientifico' cientifico.id %}" class="btn btn-sm btn-success fw-bold font-monospace">
+                        <i class="bi bi-plus-circle"></i> ASIGNAR NUEVO
+                    </a>
+                {% endif %}
             </div>
             <div class="card-body bg-dark">
                 {% if esbirros %}
@@ -53,7 +57,9 @@
                                 <th>Nombre</th>
                                 <th>Rasgo Físico</th>
                                 <th>Nivel Lealtad</th>
-                                <th class="text-end">Acción</th>
+                                {% if user.is_authenticated %}
+                                    <th class="text-end">Acción</th>
+                                {% endif %}
                             </tr>
                         </thead>
                         <tbody>
@@ -74,23 +80,25 @@
                                             {% elif e.nivel_lealtad < 8 %}bg-warning text-dark
                                             {% else %}bg-success{% endif %}" 
                                             role="progressbar" 
-                                            style="width: {{ e.nivel_lealtad }}0%;"> <!-- Truco: lealtad 5 -> 50% -->
+                                            style="width: {{ e.nivel_lealtad }}0%;">
                                             {{ e.nivel_lealtad }}/10
                                         </div>
                                     </div>
                                 </td>
-                                <td class="text-end">
-                                    <div class="btn-group">
-                                        <!-- Botón Editar -->
-                                        <a href="{% url 'laboratorio:editar_esbirro' e.id %}" class="btn btn-sm btn-outline-info" title="Editar">
-                                            <i class="bi bi-pencil-square"></i>
-                                        </a>
-                                        <!-- Botón Eliminar -->
-                                        <a href="{% url 'laboratorio:eliminar_esbirro' e.id %}" class="btn btn-sm btn-outline-danger" title="Despedir">
-                                            <i class="bi bi-trash"></i>
-                                        </a>
-                                    </div>
-                                </td>
+                                
+                                <!-- SOLO VISIBLE SI ESTÁ LOGUEADO -->
+                                {% if user.is_authenticated %}
+                                    <td class="text-end">
+                                        <div class="btn-group">
+                                            <a href="{% url 'laboratorio:editar_esbirro' e.id %}" class="btn btn-sm btn-outline-info" title="Editar">
+                                                <i class="bi bi-pencil-square"></i>
+                                            </a>
+                                            <a href="{% url 'laboratorio:eliminar_esbirro' e.id %}" class="btn btn-sm btn-outline-danger" title="Despedir">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                {% endif %}
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -101,7 +109,9 @@
                         <i class="bi bi-info-circle-fill me-3 fs-4"></i>
                         <div>
                             Este científico trabaja solo. 
-                            <a href="{% url 'laboratorio:crear_esbirro_para_cientifico' cientifico.id %}" class="alert-link">¡Asígnale un ayudante ahora!</a>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'laboratorio:crear_esbirro_para_cientifico' cientifico.id %}" class="alert-link">¡Asígnale un ayudante ahora!</a>
+                            {% endif %}
                         </div>
                     </div>
                 {% endif %}
