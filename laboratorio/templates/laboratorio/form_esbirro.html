@@ -2,45 +2,94 @@
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card border-warning shadow">
-            <div class="card-header bg-warning text-dark">
-                <h4><i class="bi bi-robot"></i> {{ accion }} Esbirro</h4>
+    <div class="col-md-5">
+        <div class="card shadow-lg" style="background: #111; border: 1px solid var(--neon-purple);">
+            <div class="card-header text-white text-center py-3" style="background: rgba(188, 19, 254, 0.1); border-bottom: 1px solid var(--neon-purple);">
+                <h4 class="mb-0 font-monospace text-uppercase">
+                    <i class="bi bi-robot"></i> {{ accion }} ESBIRRO
+                </h4>
             </div>
-            <div class="card-body">
-                <form method="post">
+            <div class="card-body p-4">
+                <form method="post" novalidate>
                     {% csrf_token %}
                     
+                    <!-- BLOQUE DE ERRORES CORREGIDO -->
+                    {% if form.errors %}
+                        <div class="alert alert-danger font-monospace small">
+                            <strong><i class="bi bi-exclamation-triangle-fill"></i> ERROR:</strong>
+                            <ul class="mb-0 ps-3">
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li>{{ field.label }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Científico a cargo</label>
+                        <label class="form-label text-warning font-monospace small">CIENTÍFICO A CARGO (JEFE)</label>
                         {{ form.cientifico }}
+                        <!-- Mostramos errores específicos del campo -->
+                        <div class="text-danger small">{{ form.cientifico.errors }}</div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label fw-bold">Nombre del Ayudante</label>
+                        <label class="form-label text-warning font-monospace small">NOMBRE DEL SUJETO</label>
                         {{ form.nombre }}
+                        <div class="text-danger small">{{ form.nombre.errors }}</div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="form-label fw-bold">Lealtad (1-10)</label>
+                    <div class="mb-3">
+                        <label class="form-label text-warning font-monospace small">NIVEL DE LEALTAD (1-10)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-dark border-secondary text-secondary"><i class="bi bi-heart-pulse"></i></span>
                             {{ form.nivel_lealtad }}
                         </div>
-                        <div class="col-md-6 mb-3 d-flex align-items-center">
-                            <div class="form-check form-switch mt-4">
-                                {{ form.tiene_joroba }}
-                                <label class="form-check-label" for="{{ form.tiene_joroba.id_for_label }}">¿Tiene Joroba?</label>
-                            </div>
-                        </div>
+                        <div class="text-danger small">{{ form.nivel_lealtad.errors }}</div>
+                        <div class="form-text text-muted small">1 = Traidor potencial, 10 = Daría la vida.</div>
                     </div>
 
-                    <div class="d-grid gap-2 mt-3">
-                        <button type="submit" class="btn btn-warning btn-lg">Confirmar Reclutamiento</button>
-                        <button type="button" class="btn btn-secondary" onclick="history.back()">Cancelar</button>
+                    <div class="mb-4 form-check form-switch">
+                        {{ form.tiene_joroba }}
+                        <label class="form-check-label text-light" for="{{ form.tiene_joroba.id_for_label }}">
+                            ¿Posee deformidad dorsal (Joroba)?
+                        </label>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary font-monospace fw-bold">
+                            <i class="bi bi-save-fill"></i> GUARDAR RECLUTA
+                        </button>
+                        <!-- Botón cancelar inteligente -->
+                        <a href="javascript:history.back()" class="btn btn-outline-secondary font-monospace">
+                            CANCELAR
+                        </a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .form-control, .form-select {
+        background-color: #222;
+        border: 1px solid #444;
+        color: #ddd;
+    }
+    .form-control:focus, .form-select:focus {
+        background-color: #2a2a2a;
+        border-color: var(--neon-purple);
+        color: #fff;
+        box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
+    }
+    .form-check-input:checked {
+        background-color: var(--neon-purple);
+        border-color: var(--neon-purple);
+    }
+</style>
 {% endblock %}

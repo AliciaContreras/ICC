@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark"> <!-- Activamos Dark Mode de Bootstrap -->
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
     <!-- Fuentes: Orbitron (Tech) y Share Tech Mono (Consola) -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     
-    <style>
+<style>
         :root {
             --neon-green: #39ff14;
             --neon-purple: #bc13fe;
@@ -24,12 +24,29 @@
 
         body {
             background-color: var(--dark-bg);
+            /* Fondo de grilla técnica */
             background-image: 
                 linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
-            background-size: 30px 30px; /* Efecto grilla */
+            background-size: 30px 30px;
             font-family: 'Share Tech Mono', monospace;
             color: #ddd;
+            overflow-x: hidden; /* Necesario para evitar scroll lateral al temblar */
+        }
+
+        /* EFECTO CRT (Monitor Viejo) - Barrido constante */
+        body::after {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 9999;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none; /* Permite hacer clic a través del efecto */
         }
 
         /* Títulos Impactantes */
@@ -37,6 +54,72 @@
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        /* ANIMACIÓN GLITCH (Falla) para títulos */
+        .glitch-effect {
+            position: relative;
+            color: white;
+        }
+        .glitch-effect::before, .glitch-effect::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-bg);
+        }
+        .glitch-effect::before {
+            left: 2px;
+            text-shadow: -1px 0 red;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        .glitch-effect::after {
+            left: -2px;
+            text-shadow: -1px 0 blue;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 30px, 0); }
+            20% { clip: rect(80px, 9999px, 100px, 0); }
+            40% { clip: rect(10px, 9999px, 100px, 0); }
+            60% { clip: rect(40px, 9999px, 60px, 0); }
+            80% { clip: rect(120px, 9999px, 140px, 0); }
+            100% { clip: rect(5px, 9999px, 80px, 0); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(120px, 9999px, 140px, 0); }
+            20% { clip: rect(10px, 9999px, 30px, 0); }
+            40% { clip: rect(50px, 9999px, 80px, 0); }
+            60% { clip: rect(10px, 9999px, 140px, 0); }
+            80% { clip: rect(80px, 9999px, 100px, 0); }
+            100% { clip: rect(30px, 9999px, 60px, 0); }
+        }
+
+        /* ANIMACIÓN DE TEMBLOR (SHAKE) - Para explosiones o eliminar */
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-3px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .shake-screen {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
         }
 
         /* Navbar Estilo Panel de Control */
@@ -50,6 +133,10 @@
             color: var(--neon-green) !important;
             text-shadow: 0 0 5px var(--neon-green);
             font-weight: 900;
+            transition: transform 0.3s;
+        }
+        .navbar-brand:hover {
+            transform: scale(1.1);
         }
 
         /* Tarjetas Estilo Sci-Fi */
@@ -63,7 +150,7 @@
         .card:hover {
             transform: translateY(-5px);
             border-left-color: var(--neon-green);
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
         }
 
         .card-header {
@@ -71,46 +158,98 @@
             border-bottom: 1px solid #333;
         }
 
-        /* Botones Neón */
-        .btn-primary {
-            background-color: transparent;
-            border: 2px solid var(--neon-purple);
-            color: var(--neon-purple);
-            text-transform: uppercase;
-            font-weight: bold;
-            box-shadow: 0 0 5px var(--neon-purple);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--neon-purple);
-            color: #fff;
-            box-shadow: 0 0 20px var(--neon-purple);
-        }
-
-        .btn-success {
-            background-color: transparent;
-            border: 2px solid var(--neon-green);
-            color: var(--neon-green);
-            box-shadow: 0 0 5px var(--neon-green);
-        }
-
-        .btn-success:hover {
-            background-color: var(--neon-green);
-            color: #000;
-            box-shadow: 0 0 20px var(--neon-green);
-        }
-
         /* Badges brillantes */
         .badge {
             font-family: 'Orbitron', sans-serif;
         }
+
+        /* === EFECTO GLOW RADIACTIVO GLOBAL PARA BOTONES === */
+        
+        /* 1. Base para TODOS los botones */
+        .btn {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn:hover {
+            transform: scale(1.05) translateY(-2px); /* Crece y sube un poco */
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Texto brilla */
+            z-index: 10; /* Se pone por encima de todo */
+        }
+
+        /* 2. Colores Específicos para el brillo (Box-Shadow) */
+
+        /* VERDES (Success - Crear, Asignar) */
+        .btn-success:hover, .btn-outline-success:hover {
+            background-color: var(--neon-green) !important;
+            color: #000 !important;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 15px var(--neon-green), 0 0 30px var(--neon-green);
+        }
+
+        /* MORADOS (Primary - Ver Perfil, Iniciar) */
+        .btn-primary:hover, .btn-outline-primary:hover {
+            background-color: var(--neon-purple) !important;
+            color: #fff !important;
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple), 0 0 30px var(--neon-purple);
+        }
+
+        /* ROJOS (Danger - Eliminar, Destruir) */
+        .btn-danger:hover, .btn-outline-danger:hover {
+            background-color: #ff0000 !important;
+            color: #fff !important;
+            border-color: #ff0000;
+            box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+        }
+        
+        /* AMARILLOS (Warning - Editar, Recalibrar) */
+        .btn-warning:hover, .btn-outline-warning:hover {
+            background-color: var(--toxic-yellow) !important;
+            color: #000 !important;
+            border-color: var(--toxic-yellow);
+            box-shadow: 0 0 15px var(--toxic-yellow), 0 0 30px var(--toxic-yellow);
+        }
+
+        /* CELESTES (Info - Detalles, Editar pequeño) */
+        .btn-info:hover, .btn-outline-info:hover {
+            background-color: #0dcaf0 !important;
+            color: #000 !important;
+            border-color: #0dcaf0;
+            box-shadow: 0 0 15px #0dcaf0, 0 0 30px #0dcaf0;
+        }
+
+        /* BLANCOS/CLAROS (Light - Volver, Cancelar) */
+        .btn-light:hover, .btn-outline-light:hover {
+            background-color: #fff !important;
+            color: #000 !important;
+            border-color: #fff;
+            box-shadow: 0 0 15px #fff, 0 0 30px #fff;
+        }
+
+        /* GRISES (Secondary - Volver, Cancelar) */
+        .btn-secondary:hover, .btn-outline-secondary:hover {
+            background-color: #a0a0a0 !important;
+            color: #000 !important;
+            border-color: #a0a0a0;
+            box-shadow: 0 0 15px #a0a0a0, 0 0 30px #444;
+        }
+
+        /* NEGROS (Dark) */
+        .btn-dark:hover, .btn-outline-dark:hover {
+            background-color: #000 !important;
+            color: #fff !important;
+            border-color: #333;
+            box-shadow: 0 0 15px #333, 0 0 30px #111;
+        }
     </style>
-</head>
+    </head>
 <body class="d-flex flex-column min-vh-100">
 
     <nav class="navbar navbar-expand-lg navbar-dark mb-0 sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'lista_inventos' %}">
+            <a class="navbar-brand" href="{% url 'laboratorio:lista_inventos' %}">
                 <i class="bi bi-radioactive"></i> I.C.C.
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -120,48 +259,49 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'lista_inventos' %}">CENTRO DE MANDO</a>
+                        <a class="nav-link active" href="{% url 'laboratorio:lista_inventos' %}">CENTRO DE MANDO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_cientificos' %}">PERSONAL</a>
+                        <a class="nav-link" href="{% url 'laboratorio:lista_cientificos' %}">PERSONAL</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'lista_materiales' %}">BODEGA</a>
+                        <a class="nav-link" href="{% url 'laboratorio:lista_materiales' %}">BODEGA</a>
                     </li>
                 </ul>
 
                 <div class="d-flex align-items-center">
                     {% if user.is_authenticated %}
                         <div class="dropdown">
-                            <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <button class="btn btn-sm btn-outline-light dropdown-toggle font-monospace" type="button" data-bs-toggle="dropdown">
                                 👨‍🔬 {{ user.username|upper }}
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-dark">
+                            <ul class="dropdown-menu dropdown-menu-dark shadow-lg border border-secondary">
                                 <li>
                                     <form action="{% url 'logout' %}" method="post">
                                         {% csrf_token %}
-                                        <button type="submit" class="dropdown-item text-danger">ABORTAR SESIÓN</button>
+                                        <button type="submit" class="dropdown-item text-danger font-monospace">
+                                            <i class="bi bi-power"></i> ABORTAR SESIÓN
+                                        </button>
                                     </form>
                                 </li>
                             </ul>
                         </div>
                     {% else %}
-                        <a href="{% url 'login' %}" class="btn btn-sm btn-warning">ACCESO DE SEGURIDAD</a>
+                        <a href="{% url 'login' %}" class="btn btn-sm btn-warning font-monospace fw-bold">ACCESO DE SEGURIDAD</a>
                     {% endif %}
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Contenedor fluido para permitir Hero a ancho completo, pero contenido centrado -->
-    <main class="flex-grow-1"></main>
+    <main class="flex-grow-1">
         {% block hero %}{% endblock %}
         
         <div class="container py-5">
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-lg border-0" role="alert" style="background: #222; border-left: 5px solid var(--toxic-yellow);">
-                        <i class="bi bi-terminal-fill me-2 text-warning"></i> <span class="font-monospace">{{ message }}</span>
+                        <i class="bi bi-terminal-fill me-2 text-warning"></i> <span class="font-monospace text-light">{{ message }}</span>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"></button>
                     </div>
                 {% endfor %}
@@ -173,7 +313,7 @@
 
     <footer class="text-center py-4 mt-auto" style="background: #000; border-top: 1px solid #333;">
         <small class="text-muted font-monospace">
-            SISTEMA OPERATIVO I.Q.S. v5.0 // "La ciencia no pregunta por qué, sino por qué no."
+            SISTEMA OPERATIVO I.C.C. v5.0 // "La ciencia no pregunta por qué, sino por qué no."
         </small>
     </footer>
 

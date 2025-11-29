@@ -3,34 +3,158 @@
 {% load static %}
 
 {% block hero %}
-<!-- HERO SECTION: SOLO VISIBLE EN ESTA PÁGINA -->
-<div class="position-relative p-5 text-center text-white mb-4" 
-     style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('{% static 'laboratorio/img/fondo_lab.png' %}'); background-size: cover; background-position: center; border-bottom: 3px solid var(--neon-green);">
-    
-    <div class="col-md-8 p-lg-5 mx-auto my-3">
-        <h1 class="display-1 fw-bold mb-3 hero-title" style="color: #fff; text-shadow: 0 0 20px var(--neon-green);">
-            INSTITUTO DE<br>
-            <span style="color: var(--neon-green);">CIENCIA CUESTIONABLE</span>
-        </h1>
-        <p class="lead font-monospace mb-4 text-info" style="text-shadow: 0 0 5px cyan;">
-            >>> SISTEMA DE GESTIÓN DE ARTEFACTOS PELIGROSOS E INESTABLES <<<
-        </p>
-        <div class="d-flex gap-3 justify-content-center lead fw-normal">
-            <a class="btn btn-success btn-lg px-4 py-3" href="{% url 'crear_invento' %}">
-                <i class="bi bi-radioactive"></i> REGISTRAR PROTOTIPO
-            </a>
-            <a class="btn btn-outline-light btn-lg px-4 py-3" href="{% url 'lista_cientificos' %}">
-                <i class="bi bi-people-fill"></i> VER PERSONAL
-            </a>
+<!-- Estilo local para la animación de rotación -->
+<style>
+    @keyframes spin-infinite {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .spin-anim {
+        animation: spin-infinite 1s linear infinite;
+        /* 1s = velocidad de giro */
+    }
+</style>
+
+<!-- HERO SECTION CON SIMULADOR INTERACTIVO -->
+<div class="position-relative p-4 p-lg-5 mb-4"
+    style="background: linear-gradient(90deg, #000 0%, rgba(20,20,20,0.9) 100%); border-bottom: 3px solid var(--neon-green); overflow: hidden;">
+
+    <!-- Video o Imagen de Fondo Difuminada -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; opacity: 0.3; 
+         background: url('{% static 'laboratorio/img/fondo_lab.png' %}') center/cover;"></div>
+
+    <div class="container position-relative" style="z-index: 1;">
+        <div class="row align-items-center">
+
+            <!-- Texto Principal con GLITCH -->
+            <div class="col-lg-7 text-start">
+                <h1 class="display-3 fw-bold mb-3 hero-title glitch-effect"
+                    data-text="INSTITUTO DE CIENCIA CUESTIONABLE"
+                    style="color: #fff; text-shadow: 0 0 10px var(--neon-green);">
+                    INSTITUTO DE<br>
+                    <span style="color: var(--neon-green);">CIENCIA CUESTIONABLE</span>
+                </h1>
+                <p class="lead font-monospace mb-4 text-info">
+                    >> SISTEMA DE GESTIÓN DE ARTEFACTOS INESTABLES v5.0 << </p>
+
+                        <div class="d-flex gap-3 lead fw-normal">
+                            <a class="btn btn-success btn-lg px-4" href="{% url 'laboratorio:crear_invento' %}">
+                                <i class="bi bi-radioactive"></i> REGISTRAR PROTOTIPO
+                            </a>
+                            <a class="btn btn-outline-light btn-lg px-4"
+                                href="{% url 'laboratorio:lista_cientificos' %}">
+                                <i class="bi bi-people-fill"></i> PERSONAL
+                            </a>
+                        </div>
+            </div>
+
+            <!-- SIMULADOR INTERACTIVO (JS) -->
+            <div class="col-lg-5 mt-4 mt-lg-0">
+                <div class="card shadow-lg border-0"
+                    style="background: rgba(0,0,0,0.8); border: 1px solid var(--neon-purple) !important;">
+                    <div class="card-header bg-transparent border-bottom border-secondary text-center">
+                        <small class="text-warning font-monospace"> >>>SIMULADOR DE MEZCLAS PÚBLICO<<< </small>
+                    </div>
+                    <div class="card-body text-center p-4">
+                        <div id="sim-screen"
+                            class="mb-3 rounded d-flex align-items-center justify-content-center flex-column"
+                            style="height: 120px; background: #0a0a0a; border: 2px solid #333; color: var(--neon-green);">
+                            <i class="bi bi-virus display-4 mb-2" id="sim-icon"></i>
+                            <span id="sim-text" class="font-monospace fw-bold">LISTO PARA PRUEBA</span>
+                        </div>
+
+                        <button onclick="runSimulation()" class="btn btn-primary w-100 font-monospace fw-bold"
+                            id="sim-btn">
+                            <i class="bi bi-lightning-fill"></i> INICIAR REACCIÓN
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    
-    <!-- Efecto decorativo -->
-    <div style="position: absolute; bottom: 10px; right: 20px; font-family: 'Share Tech Mono'; color: var(--neon-purple); opacity: 0.7;">
-        STATUS: CRÍTICO<br>
-        DÍAS SIN ACCIDENTES: 0
-    </div>
 </div>
+
+<!-- SCRIPT DEL SIMULADOR MEJORADO -->
+<script>
+    // Recuperamos los datos reales de Django
+    const databaseItems = JSON.parse('{{ datos_simulador|escapejs }}');
+
+    function runSimulation() {
+        const screen = document.getElementById('sim-screen');
+        const text = document.getElementById('sim-text');
+        const icon = document.getElementById('sim-icon');
+        const btn = document.getElementById('sim-btn');
+        const body = document.body;
+
+        // 1. Estado "Procesando"
+        btn.disabled = true;
+        text.innerText = "SINTETIZANDO...";
+        text.style.color = "cyan";
+
+        // AQUÍ ESTÁ EL CAMBIO: Agregamos la clase 'spin-anim'
+        icon.className = "bi bi-gear-wide-connected display-4 mb-2 spin-anim";
+
+        screen.style.borderColor = "cyan";
+        screen.style.boxShadow = "0 0 15px cyan"; // Glow azul mientras piensa
+
+        let interval = setInterval(() => {
+            screen.style.backgroundColor = screen.style.backgroundColor === '#0a0a0a' ? '#222' : '#0a0a0a';
+        }, 80);
+
+        // 2. Resultado (2 segundos después)
+        setTimeout(() => {
+            clearInterval(interval);
+            screen.style.backgroundColor = "#0a0a0a";
+
+            // 60% de probabilidad de encontrar algo, 40% de Boom
+            const exito = Math.random() > 0.4;
+
+            if (exito && databaseItems.length > 0) {
+                // ELEGIR ÍTEM REAL DE LA BD
+                const itemAleatorio = databaseItems[Math.floor(Math.random() * databaseItems.length)];
+
+                text.innerText = itemAleatorio.nombre.toUpperCase(); // Nombre real
+
+                if (itemAleatorio.tipo === 'material') {
+                    // Es un Material peligroso
+                    text.style.color = "#bc13fe"; // Morado Neón
+                    screen.style.borderColor = "#bc13fe";
+                    screen.style.boxShadow = "0 0 20px #bc13fe";
+                    icon.className = "bi bi-radioactive display-4 mb-2";
+                    icon.style.color = "#bc13fe";
+                } else {
+                    // Es un Componente mecánico
+                    text.style.color = "#39ff14"; // Verde Neón
+                    screen.style.borderColor = "#39ff14";
+                    screen.style.boxShadow = "0 0 20px #39ff14";
+                    icon.className = "bi bi-tools display-4 mb-2";
+                    icon.style.color = "#39ff14";
+                }
+
+            } else {
+                // EXPLOSIÓN
+                text.innerText = "¡FALLO DE CONTENCIÓN!";
+                text.style.color = "red";
+                screen.style.borderColor = "red";
+                screen.style.boxShadow = "0 0 30px red";
+                icon.className = "bi bi-exclamation-octagon-fill display-4 mb-2 text-danger";
+
+                // Agitar la pantalla
+                body.classList.add('shake-screen');
+                setTimeout(() => body.classList.remove('shake-screen'), 800);
+            }
+
+            btn.disabled = false;
+        }, 2000);
+    }
+</script>
 {% endblock %}
 
 {% block content %}
@@ -51,48 +175,83 @@
                                 <th class="ps-4">Evidencia</th>
                                 <th>Nombre Clave</th>
                                 <th>Fecha Inicio</th>
-                                <th>Probabilidad</th>
+                                <th>Probabilidad Éxito</th>
                                 <th class="text-end pe-4">Protocolos</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for invento in inventos %}
                             <tr>
+                                <!-- 1. FOTO -->
                                 <td class="ps-4">
                                     {% if invento.foto %}
-                                        <img src="{{ invento.foto.url }}" class="rounded border border-secondary" style="width: 50px; height: 50px; object-fit: cover;">
+                                    <img src="{{ invento.foto.url }}" class="rounded border border-secondary"
+                                        style="width: 50px; height: 50px; object-fit: cover;">
                                     {% else %}
-                                        <div class="rounded border border-secondary d-flex align-items-center justify-content-center text-muted" style="width: 50px; height: 50px; background: #222;">
-                                            <i class="bi bi-question-lg"></i>
-                                        </div>
+                                    <div class="rounded border border-secondary d-flex align-items-center justify-content-center text-muted"
+                                        style="width: 50px; height: 50px; background: #222;">
+                                        <i class="bi bi-question-lg"></i>
+                                    </div>
                                     {% endif %}
                                 </td>
+
+                                <!-- 2. NOMBRE -->
                                 <td class="fw-bold text-info font-monospace">{{ invento.nombre }}</td>
-                                <td class="text-muted small">{{ invento.fecha_fabricacion|date:"d/m/Y" }}</td>
-                                <td>
-                                    {% if invento.probabilidad_exito < 20 %}
-                                        <div class="progress" style="height: 20px; background: #330000;">
-                                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: {{ invento.probabilidad_exito }}%">{{ invento.probabilidad_exito }}%</div>
-                                        </div>
-                                    {% elif invento.probabilidad_exito > 80 %}
-                                        <div class="progress" style="height: 20px; background: #003300;">
-                                            <div class="progress-bar bg-success" style="width: {{ invento.probabilidad_exito }}%">{{ invento.probabilidad_exito }}%</div>
-                                        </div>
-                                    {% else %}
-                                        <div class="progress" style="height: 20px; background: #333;">
-                                            <div class="progress-bar bg-warning text-dark" style="width: {{ invento.probabilidad_exito }}%">{{ invento.probabilidad_exito }}%</div>
-                                        </div>
-                                    {% endif %}
+
+                                <!-- 3. FECHA -->
+                                <td class="text-muted small font-monospace">{{ invento.fecha_fabricacion|date:"d/m/Y" }}
                                 </td>
+
+                                <!-- 4. BARRA DE PROBABILIDAD (CORREGIDA) -->
+                                <td style="width: 25%;">
+                                    <!-- Contenedor de la barra -->
+                                    <div class="progress"
+                                        style="height: 25px; background-color: #222; border: 1px solid #444;">
+
+                                        {% if invento.probabilidad_exito < 20 %} <!-- PELIGROSO (ROJO) -->
+                                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
+                                                role="progressbar" style="width: {{ invento.probabilidad_exito }}%;">
+                                                <span class="fw-bold text-white small"
+                                                    style="text-shadow: 1px 1px 2px black;">
+                                                    {{ invento.probabilidad_exito }}%
+                                                </span>
+                                            </div>
+
+                                            {% elif invento.probabilidad_exito > 80 %}
+                                            <!-- EXITOSO (VERDE) -->
+                                            <div class="progress-bar bg-success" role="progressbar"
+                                                style="width: {{ invento.probabilidad_exito }}%;">
+                                                <span class="fw-bold text-dark small">
+                                                    {{ invento.probabilidad_exito }}%
+                                                </span>
+                                            </div>
+
+                                            {% else %}
+                                            <!-- NORMAL (AMARILLO) -->
+                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                style="width: {{ invento.probabilidad_exito }}%;">
+                                                <span class="fw-bold text-dark small">
+                                                    {{ invento.probabilidad_exito }}%
+                                                </span>
+                                            </div>
+                                            {% endif %}
+
+                                    </div>
+                                </td>
+
+                                <!-- 5. ACCIONES -->
                                 <td class="text-end pe-4">
                                     <div class="btn-group" role="group">
-                                        <a href="{% url 'detalle_invento' invento.id %}" class="btn btn-sm btn-outline-info" title="Analizar">
+                                        <a href="{% url 'laboratorio:detalle_invento' invento.id %}"
+                                            class="btn btn-sm btn-outline-info" title="Analizar">
                                             <i class="bi bi-search"></i>
                                         </a>
-                                        <a href="{% url 'editar_invento' invento.id %}" class="btn btn-sm btn-outline-warning" title="Recalibrar">
+                                        <a href="{% url 'laboratorio:editar_invento' invento.id %}"
+                                            class="btn btn-sm btn-outline-warning" title="Recalibrar">
                                             <i class="bi bi-wrench"></i>
                                         </a>
-                                        <a href="{% url 'eliminar_invento' invento.id %}" class="btn btn-sm btn-outline-danger" title="Neutralizar">
+                                        <a href="{% url 'laboratorio:eliminar_invento' invento.id %}"
+                                            class="btn btn-sm btn-outline-danger" title="Neutralizar">
                                             <i class="bi bi-radioactive"></i>
                                         </a>
                                     </div>
@@ -111,13 +270,17 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- SQL Console -->
-        <div class="p-3" style="background-color: #000; border: 1px solid #333; border-left: 3px solid var(--neon-green); font-family: 'Courier New', monospace;">
-            <h6 class="text-success mb-2">> SYSTEM_LOG_AUDIT.exe -running</h6>
+        <div class="p-3 shadow-lg" style="background-color: #000; border: 1px solid #333; border-left: 3px solid var(--neon-green); font-family: 'Courier New', monospace;">
+            <h6 class="text-success mb-2 font-monospace">> SYSTEM_LOG_AUDIT.exe -running</h6>
             <ul class="list-unstyled small mb-0 text-secondary">
                 {% for item in recientes_sql %}
-                    <li><span class="text-warning">[{{ item.fecha_fabricacion|date:"d/m/Y" }}]</span> DETECTADO OBJETO: {{ item.nombre|upper }} (ID: {{ item.id }})</li>
+                    <li>
+                        <span class="text-warning">[{{ item.fecha_fabricacion|date:"d/m/Y" }}]</span> 
+                        DETECTADO OBJETO: <span class="text-light fw-bold">{{ item.nombre|upper }}</span> 
+                        (ID: {{ item.id }})
+                    </li>
                 {% endfor %}
             </ul>
         </div>
@@ -127,16 +290,19 @@
     <div class="col-md-4">
         <!-- Stats Card -->
         <div class="card mb-4" style="border-color: var(--neon-purple);">
-            <div class="card-header text-white fw-bold d-flex justify-content-between align-items-center" style="background: var(--neon-purple);">
+            <div class="card-header text-white fw-bold d-flex justify-content-between align-items-center"
+                style="background: var(--neon-purple);">
                 <span><i class="bi bi-graph-up"></i> ESTADÍSTICAS</span>
                 <span class="badge bg-dark">VIVO</span>
             </div>
             <ul class="list-group list-group-flush list-group-dark">
-                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-secondary">
+                <li
+                    class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-secondary">
                     <span><i class="bi bi-exclamation-triangle text-danger"></i> Peligro Biológico</span>
                     <span class="badge bg-danger rounded-pill">{{ peligrosos.count }}</span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-secondary">
+                <li
+                    class="list-group-item d-flex justify-content-between align-items-center bg-dark text-light border-secondary">
                     <span><i class="bi bi-lightning-charge text-warning"></i> Inestables</span>
                     <span class="badge bg-warning text-dark rounded-pill">{{ inestables.count }}</span>
                 </li>
@@ -152,11 +318,13 @@
                 {% for c in cientificos %}
                 <div class="d-flex align-items-center mb-3 p-2 rounded hover-effect" style="background: #1a1a1a;">
                     {% if c.foto %}
-                        <img src="{{ c.foto.url }}" class="rounded-circle me-3" style="width: 40px; height: 40px; object-fit: cover; border: 2px solid cyan;">
+                    <img src="{{ c.foto.url }}" class="rounded-circle me-3"
+                        style="width: 40px; height: 40px; object-fit: cover; border: 2px solid cyan;">
                     {% else %}
-                        <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white" style="width: 40px; height: 40px;">
-                            <i class="bi bi-person"></i>
-                        </div>
+                    <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white"
+                        style="width: 40px; height: 40px;">
+                        <i class="bi bi-person"></i>
+                    </div>
                     {% endif %}
                     <div class="flex-grow-1">
                         <h6 class="m-0 text-light">{{ c.nombre }}</h6>

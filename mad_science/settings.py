@@ -124,7 +124,7 @@ MESSAGE_TAGS = {
 }
 
 # Redirección después de iniciar sesión exitosamente
-LOGIN_REDIRECT_URL = 'lista_inventos'
+LOGIN_REDIRECT_URL = 'laboratorio:lista_inventos'
 
 # Redirección después de cerrar sesión
 LOGOUT_REDIRECT_URL = 'login'

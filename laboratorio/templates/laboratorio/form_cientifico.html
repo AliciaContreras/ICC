@@ -3,32 +3,64 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <div class="card border-primary shadow">
-            <div class="card-header bg-primary text-white">
-                <h4><i class="bi bi-person-plus-fill"></i> {{ accion }} Científico</h4>
+        <div class="card shadow-lg" style="background: #111; border: 1px solid var(--neon-green);">
+            <div class="card-header text-white text-center py-3" style="background: rgba(57, 255, 20, 0.1); border-bottom: 1px solid var(--neon-green);">
+                <h4 class="mb-0 font-monospace text-uppercase">
+                    <i class="bi bi-person-badge-fill"></i> {{ accion }} CIENTÍFICO
+                </h4>
             </div>
-            <div class="card-body">
-                <!-- IMPORTANTE: enctype agregado -->
+            <div class="card-body p-4">
+                <!-- IMPORTANTE: enctype para la foto -->
                 <form method="post" enctype="multipart/form-data" novalidate>
                     {% csrf_token %}
                     
-                    {% for field in form %}
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">{{ field.label }}</label>
-                            {{ field }}
-                            {% for error in field.errors %}
-                                <div class="text-danger small">{{ error }}</div>
-                            {% endfor %}
-                        </div>
-                    {% endfor %}
+                    <div class="mb-3">
+                        <label class="form-label text-info font-monospace small">NOMBRE COMPLETO</label>
+                        {{ form.nombre }}
+                    </div>
 
-                    <div class="d-grid gap-2 mt-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Guardar Expediente</button>
-                        <a href="{% url 'lista_cientificos' %}" class="btn btn-secondary">Cancelar</a>
+                    <div class="mb-3">
+                        <label class="form-label text-info font-monospace small">ESPECIALIDAD (PhD)</label>
+                        {{ form.especialidad }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-info font-monospace small">FOTOGRAFÍA DE LEGAJO</label>
+                        {{ form.foto }}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label text-info font-monospace small">BIOGRAFÍA / ANTECEDENTES</label>
+                        {{ form.biografia }}
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <!-- URL Corregida -->
+                        <a href="{% url 'laboratorio:lista_cientificos' %}" class="btn btn-outline-secondary font-monospace">
+                            CANCELAR
+                        </a>
+                        <button type="submit" class="btn btn-success font-monospace fw-bold px-4">
+                            <i class="bi bi-check-lg"></i> CONFIRMAR REGISTRO
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Estilos para inputs oscuros -->
+<style>
+    .form-control, .form-select {
+        background-color: #222;
+        border: 1px solid #444;
+        color: #ddd;
+    }
+    .form-control:focus {
+        background-color: #2a2a2a;
+        border-color: var(--neon-green);
+        color: #fff;
+        box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+    }
+</style>
 {% endblock %}

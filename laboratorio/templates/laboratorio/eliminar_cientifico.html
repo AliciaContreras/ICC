@@ -1,18 +1,42 @@
 {% extends 'laboratorio/base.html' %}
 
 {% block content %}
-<div class="row justify-content-center mt-5">
-    <div class="col-md-6 text-center">
-        <div class="alert alert-dark border-danger shadow">
-            <h2 class="display-6 text-danger"><i class="bi bi-exclamation-octagon-fill"></i> ¿Despedir Personal?</h2>
-            <p class="lead">Estás a punto de eliminar el expediente de: <strong>{{ cientifico.nombre }}</strong>.</p>
-            <p class="small text-muted">Nota: Sus esbirros también serán liberados (o eliminados, según configuración).</p>
-            
-            <form method="post">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-danger btn-lg">🔥 CONFIRMAR DESPIDO</button>
-                <a href="{% url 'lista_cientificos' %}" class="btn btn-secondary btn-lg">Cancelar</a>
-            </form>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Agregamos 'shake-screen' para que tiemble al entrar -->
+            <div class="card shadow border-danger shake-screen" style="background: #110000;">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0 font-monospace"><i class="bi bi-person-x-fill"></i> ALERTA DE DESPIDO</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p class="lead text-light font-monospace">
+                        Estás a punto de rescindir el contrato de:
+                    </p>
+                    
+                    <!-- Nombre con efecto Glitch -->
+                    <h3 class="text-danger my-4 fw-bold glitch-effect" data-text="{{ cientifico.nombre }}">
+                        "{{ cientifico.nombre }}"
+                    </h3>
+                    
+                    <div class="alert alert-dark border-danger text-danger font-monospace small">
+                        <i class="bi bi-exclamation-triangle"></i> ADVERTENCIA: Sus esbirros asignados también serán liberados (o eliminados, según cláusula 42).
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2 d-md-flex justify-content-center mt-4">
+                            <!-- AQUÍ ESTABA EL ERROR: Ahora usa 'laboratorio:lista_cientificos' -->
+                            <a href="{% url 'laboratorio:lista_cientificos' %}" class="btn btn-outline-secondary me-md-2 font-monospace">
+                                CANCELAR
+                            </a>
+                            <button type="submit" class="btn btn-danger font-monospace fw-bold">
+                                🔥 CONFIRMAR DESPIDO
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

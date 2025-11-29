@@ -56,6 +56,11 @@ InventoComponenteFormSet = inlineformset_factory(
     Invento,            # Padre
     Receta,             # Hijo (Intermedia)
     fields=('componente', 'cantidad'),
-    extra=1,
-    can_delete=True
+    extra=5,            # Intentará mostrar 5 filas vacías...
+    max_num=5,          # ...pero nunca pasará de 5 filas en total (sumando las ocupadas).
+    can_delete=True,
+    widgets={
+        'cantidad': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Cant.'}),
+        'componente': forms.Select(attrs={'class': 'form-select'})
+    }
 )

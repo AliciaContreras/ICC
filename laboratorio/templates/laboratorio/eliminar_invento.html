@@ -1,18 +1,40 @@
 {% extends 'laboratorio/base.html' %}
 
 {% block content %}
-<div class="row justify-content-center mt-5">
-    <div class="col-md-6 text-center">
-        <div class="alert alert-danger shadow">
-            <h2 class="display-6">☢️ ¿Iniciar secuencia de autodestrucción?</h2>
-            <p class="lead">Estás a punto de eliminar el invento: <strong>{{ invento.nombre }}</strong>.</p>
-            <p>Esta acción no se puede deshacer (y podría causar un agujero negro).</p>
-            
-            <form method="post">
-                {% csrf_token %} <!-- Seguridad -->
-                <button type="submit" class="btn btn-danger btn-lg">🔥 SÍ, ELIMINAR</button>
-                <a href="{% url 'lista_inventos' %}" class="btn btn-secondary btn-lg">Cancelar</a>
-            </form>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h4 class="mb-0">⚠ Confirmar Eliminación</h4>
+                </div>
+                <div class="card-body text-center">
+                    <p class="lead">
+                        ¿Estás seguro de que deseas destruir el 
+                        <strong>{{ tipo_objeto }}</strong>:
+                    </p>
+                    
+                    <h3 class="text-danger my-4">"{{ objeto }}"</h3>
+                    
+                    <p class="text-muted small">
+                        Esta acción es irreversible. Los datos se perderán en el vórtice temporal para siempre.
+                    </p>
+
+                    <!-- El action vacío hace POST a la misma URL actual, 
+                         sea cual sea (inventos/eliminar/X o materiales/eliminar/Y) -->
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2 d-md-flex justify-content-center">
+                            <a href="{% url 'laboratorio:lista_inventos' %}" class="btn btn-secondary me-md-2">
+                                Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                💣 Sí, destruir
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

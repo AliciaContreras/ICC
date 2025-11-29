@@ -2,22 +2,67 @@
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow">
-            <div class="card-header bg-secondary text-white">
-                <h4>📦 {{ accion }} Material</h4>
+    <div class="col-md-5">
+        <div class="card shadow-lg" style="background: #111; border: 1px solid var(--toxic-yellow);">
+            <div class="card-header text-dark text-center py-3" style="background: var(--toxic-yellow);">
+                <h4 class="mb-0 font-monospace text-uppercase fw-bold">
+                    <i class="bi bi-box-seam"></i> {{ accion }} MATERIAL
+                </h4>
             </div>
-            <div class="card-body">
-                <form method="post">
+            <div class="card-body p-4">
+                <form method="post" novalidate>
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    
+                    <div class="mb-3">
+                        <label class="form-label text-warning font-monospace small">DENOMINACIÓN</label>
+                        {{ form.nombre }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-warning font-monospace small">NIVEL DE PELIGRO</label>
+                        {{ form.nivel_peligro }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label text-warning font-monospace small">STOCK (GRAMOS)</label>
+                        {{ form.stock_gramos }}
+                    </div>
+
+                    <div class="mb-4 form-check form-switch">
+                        {{ form.es_ilegal }}
+                        <label class="form-check-label text-light" for="{{ form.es_ilegal.id_for_label }}">
+                            ¿Este material está prohibido por la ONU? (Ilegal)
+                        </label>
+                    </div>
+
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-success">Guardar en Bodega</button>
-                        <a href="{% url 'lista_materiales' %}" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-warning text-dark font-monospace fw-bold">
+                            <i class="bi bi-archive-fill"></i> GUARDAR EN BODEGA
+                        </button>
+                        <a href="{% url 'laboratorio:lista_materiales' %}" class="btn btn-outline-secondary font-monospace">
+                            CANCELAR
+                        </a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .form-control, .form-select {
+        background-color: #222;
+        border: 1px solid #444;
+        color: #ddd;
+    }
+    .form-control:focus, .form-select:focus {
+        background-color: #2a2a2a;
+        border-color: var(--toxic-yellow);
+        color: #fff;
+    }
+    .form-check-input:checked {
+        background-color: var(--toxic-yellow);
+        border-color: var(--toxic-yellow);
+    }
+</style>
 {% endblock %}

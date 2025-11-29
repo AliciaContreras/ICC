@@ -2,73 +2,94 @@
 
 {% block content %}
 <div class="row">
+    <!-- COLUMNA IZQUIERDA: PERFIL CIENTÍFICO -->
     <div class="col-md-4">
-        <div class="card shadow mb-3">
+        <div class="card shadow mb-4" style="background: #111; border: 1px solid var(--neon-purple);">
             <div class="card-body text-center">
                 <!-- FOTO GRANDE -->
-                {% if cientifico.foto %}
-                    <img src="{{ cientifico.foto.url }}" class="img-fluid rounded mb-3 shadow">
-                {% else %}
-                    <i class="bi bi-person-circle display-1 text-primary"></i>
-                {% endif %}
+                <div class="mb-3">
+                    {% if cientifico.foto %}
+                        <img src="{{ cientifico.foto.url }}" class="img-fluid rounded mb-3 shadow" style="border: 2px solid cyan; max-height: 300px;">
+                    {% else %}
+                        <div class="p-5 bg-dark border border-secondary rounded text-muted">
+                            <i class="bi bi-person-circle display-1"></i>
+                        </div>
+                    {% endif %}
+                </div>
                 
-                <h3 class="mt-3">{{ cientifico.nombre }}</h3>
-                <span class="badge bg-warning text-dark">{{ cientifico.especialidad }}</span>
-                <p class="mt-3 text-muted">{{ cientifico.biografia }}</p>
+                <h3 class="mt-3 text-white hero-title">{{ cientifico.nombre }}</h3>
+                <span class="badge bg-warning text-dark font-monospace border border-light">{{ cientifico.especialidad }}</span>
+                
+                <hr class="border-secondary my-4">
+                
+                <h6 class="text-start text-info font-monospace small">> BIOGRAFÍA_REGISTRADA:</h6>
+                <p class="mt-2 text-muted font-monospace text-start small border-start border-primary ps-3" style="border-width: 3px !important;">
+                    {{ cientifico.biografia|default:"Sin datos biográficos disponibles." }}
+                </p>
             </div>
         </div>
         <div class="mt-3">
-            <a href="{% url 'lista_cientificos' %}" class="btn btn-outline-secondary w-100">Volver a la lista</a>
+            <a href="{% url 'laboratorio:lista_cientificos' %}" class="btn btn-outline-light w-100 font-monospace">
+                <i class="bi bi-arrow-left"></i> VOLVER A LA LISTA
+            </a>
         </div>
     </div>
 
+    <!-- COLUMNA DERECHA: ESBIRROS -->
     <div class="col-md-8">
-        <div class="card shadow">
-            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                <h5 class="m-0"><i class="bi bi-robot"></i> Esbirros Asignados</h5>
-                <a href="{% url 'crear_esbirro_para_cientifico' cientifico.id %}" class="btn btn-sm btn-success">
-                    <i class="bi bi-plus-circle"></i> Asignar Nuevo
+        <div class="card shadow" style="border-color: var(--neon-green);">
+            <div class="card-header text-white d-flex justify-content-between align-items-center" style="background: rgba(57, 255, 20, 0.1);">
+                <h5 class="m-0 font-monospace"><i class="bi bi-robot"></i> ESBIRROS ASIGNADOS</h5>
+                <a href="{% url 'laboratorio:crear_esbirro_para_cientifico' cientifico.id %}" class="btn btn-sm btn-success fw-bold font-monospace">
+                    <i class="bi bi-plus-circle"></i> ASIGNAR NUEVO
                 </a>
             </div>
-            <div class="card-body">
+            <div class="card-body bg-dark">
                 {% if esbirros %}
                 <div class="table-responsive">
-                    <table class="table align-middle table-hover">
+                    <table class="table table-dark table-hover align-middle border-secondary">
                         <thead>
-                            <tr>
+                            <tr class="text-secondary text-uppercase small font-monospace">
                                 <th>Nombre</th>
-                                <th>Joroba</th>
-                                <th>Lealtad</th>
-                                <th>Acción</th>
+                                <th>Rasgo Físico</th>
+                                <th>Nivel Lealtad</th>
+                                <th class="text-end">Acción</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for e in esbirros %}
                             <tr>
-                                <td class="fw-bold">{{ e.nombre }}</td>
+                                <td class="fw-bold text-light">{{ e.nombre }}</td>
                                 <td>
                                     {% if e.tiene_joroba %}
-                                        <span class="badge bg-secondary">SÍ</span>
+                                        <span class="badge bg-secondary border border-light">Con Joroba</span>
                                     {% else %}
-                                        <span class="text-muted small">No</span>
+                                        <span class="text-muted small font-monospace">-- Normal --</span>
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <div class="progress" style="height: 20px;">
+                                    <div class="progress" style="height: 15px; background-color: #222;">
                                         <div class="progress-bar 
                                             {% if e.nivel_lealtad < 4 %}bg-danger
-                                            {% elif e.nivel_lealtad < 8 %}bg-warning
+                                            {% elif e.nivel_lealtad < 8 %}bg-warning text-dark
                                             {% else %}bg-success{% endif %}" 
                                             role="progressbar" 
-                                            style="width: {{ e.nivel_lealtad }}0%;">
-                                            {{ e.nivel_lealtad }}
+                                            style="width: {{ e.nivel_lealtad }}0%;"> <!-- Truco: lealtad 5 -> 50% -->
+                                            {{ e.nivel_lealtad }}/10
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <a href="{% url 'editar_esbirro' e.id %}" class="btn btn-sm btn-outline-secondary" title="Editar">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </a>
+                                <td class="text-end">
+                                    <div class="btn-group">
+                                        <!-- Botón Editar -->
+                                        <a href="{% url 'laboratorio:editar_esbirro' e.id %}" class="btn btn-sm btn-outline-info" title="Editar">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                        <!-- Botón Eliminar -->
+                                        <a href="{% url 'laboratorio:eliminar_esbirro' e.id %}" class="btn btn-sm btn-outline-danger" title="Despedir">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
                                 </td>
                             </tr>
                             {% endfor %}
@@ -76,8 +97,12 @@
                     </table>
                 </div>
                 {% else %}
-                    <div class="alert alert-info">
-                        Este científico trabaja solo. <a href="{% url 'crear_esbirro_para_cientifico' cientifico.id %}">¡Asignale uno ahora!</a>
+                    <div class="alert alert-dark border-info text-info d-flex align-items-center">
+                        <i class="bi bi-info-circle-fill me-3 fs-4"></i>
+                        <div>
+                            Este científico trabaja solo. 
+                            <a href="{% url 'laboratorio:crear_esbirro_para_cientifico' cientifico.id %}" class="alert-link">¡Asígnale un ayudante ahora!</a>
+                        </div>
                     </div>
                 {% endif %}
             </div>
