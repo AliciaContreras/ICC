@@ -112,15 +112,36 @@ python manage.py migrate
 
 ------------------------------------------------------------------------
 
-## 🧪 Poblado de Datos (Script Unificado)
+### 🧪 Poblado de Datos
 
-Olvídate de cargar JSONs antiguos. Se creó un script maestro que genera
-científicos, materiales, componentes, inventos y recluta esbirros
-automáticamente:
+Tienes dos opciones para inicializar la base de datos:
+
+------------------------------------------------------------------------
+
+### **Opción A: Generar datos nuevos (Simulación)**
+
+Ejecuta el script maestro para generar científicos, materiales e
+inventos con valores aleatorios:
 
 ``` bash
 python poblar_lab.py
 ```
+
+------------------------------------------------------------------------
+
+### **Opción B: Cargar Backup (Datos de la Entrega)**
+
+Para restaurar el estado exacto del proyecto tal como fue entregado
+(incluye el superusuario administrador):
+
+``` bash
+python manage.py loaddata iqs_datos_final.json
+```
+
+**Nota:**\
+Si usas la Opción B, las credenciales del superusuario son las
+configuradas en la entrega (por ejemplo: `admin / 1234`, o las que hayas
+definido\`).
 
 ------------------------------------------------------------------------
 
