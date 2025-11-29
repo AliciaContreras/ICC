@@ -73,7 +73,10 @@ DATABASES = {
         conn_max_age=600
     )
 }
-
+if 'RENDER' in os.environ:
+    DATABASES['default']['OPTIONS'] = {
+        'client_encoding': 'UTF8',
+    }
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
