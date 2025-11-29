@@ -140,8 +140,7 @@ python manage.py loaddata iqs_datos_final.json
 
 **Nota:**\
 Si usas la Opción B, las credenciales del superusuario son las
-configuradas en la entrega (por ejemplo: `admin / 1234`, o las que hayas
-definido\`).
+configuradas en la entrega ( `root / root`\`).
 
 ------------------------------------------------------------------------
 
