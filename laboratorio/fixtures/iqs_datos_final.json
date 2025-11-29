@@ -53,7 +53,7 @@
     "model": "laboratorio.materialsospechoso",
     "pk": 7,
     "fields": {
-        "nombre": "Antimateria Líquida",
+        "nombre": "Antimateria Lï¿½quida",
         "nivel_peligro": "EXTREMO",
         "es_ilegal": true,
         "stock_gramos": "0.50"
@@ -73,7 +73,7 @@
     "model": "laboratorio.materialsospechoso",
     "pk": 9,
     "fields": {
-        "nombre": "Polvo de Hadas (Alucinógeno)",
+        "nombre": "Polvo de Hadas (Alucinï¿½geno)",
         "nivel_peligro": "ALTO",
         "es_ilegal": true,
         "stock_gramos": "50.00"
@@ -83,7 +83,7 @@
     "model": "laboratorio.materialsospechoso",
     "pk": 10,
     "fields": {
-        "nombre": "Sangre de Dragón",
+        "nombre": "Sangre de Dragï¿½n",
         "nivel_peligro": "MEDIO",
         "es_ilegal": true,
         "stock_gramos": "750.00"
@@ -103,7 +103,7 @@
     "model": "laboratorio.materialsospechoso",
     "pk": 12,
     "fields": {
-        "nombre": "Ácido Sulfúrico Casero",
+        "nombre": "ï¿½cido Sulfï¿½rico Casero",
         "nivel_peligro": "ALTO",
         "es_ilegal": false,
         "stock_gramos": "5000.00"
@@ -163,7 +163,7 @@
     "model": "laboratorio.materialsospechoso",
     "pk": 18,
     "fields": {
-        "nombre": "Vibranium Líquido",
+        "nombre": "Vibranium Lï¿½quido",
         "nivel_peligro": "EXTREMO",
         "es_ilegal": true,
         "stock_gramos": "4338.12"
@@ -213,7 +213,7 @@
     "model": "laboratorio.materialsospechoso",
     "pk": 24,
     "fields": {
-        "nombre": "Mutágeno T-Virus",
+        "nombre": "Mutï¿½geno T-Virus",
         "nivel_peligro": "EXTREMO",
         "es_ilegal": true,
         "stock_gramos": "4915.69"
@@ -255,7 +255,7 @@
     "fields": {
         "nombre": "Rick Sanchez",
         "especialidad": "Realidades Alternas",
-        "biografia": "El hombre más inteligente del universo.",
+        "biografia": "El hombre mï¿½s inteligente del universo.",
         "foto": "cientificos/rick-sanchez-character-analysis-not-a-nihilist-but-a-cynic.jpg"
     }
 },
@@ -265,7 +265,7 @@
     "fields": {
         "nombre": "Dr. Heinz Doofenshmirtz",
         "especialidad": "Inadores",
-        "biografia": "Gobernante del Área Limítrofe (casi).",
+        "biografia": "Gobernante del ï¿½rea Limï¿½trofe (casi).",
         "foto": "cientificos/Heinz-Doofenshmirtz.Phineas-and-Ferb.webp"
     }
 },
@@ -274,7 +274,7 @@
     "pk": 4,
     "fields": {
         "nombre": "Dr. Neo Cortex",
-        "especialidad": "Mutaciones Genéticas",
+        "especialidad": "Mutaciones Genï¿½ticas",
         "biografia": "Enemigo de los Bandicoots.",
         "foto": "cientificos/wp8076586.jpg"
     }
@@ -284,8 +284,8 @@
     "pk": 5,
     "fields": {
         "nombre": "Dexter",
-        "especialidad": "Ingeniería Mecánica",
-        "biografia": "El niño genio con un laboratorio secreto.",
+        "especialidad": "Ingenierï¿½a Mecï¿½nica",
+        "biografia": "El niï¿½o genio con un laboratorio secreto.",
         "foto": "cientificos/Dexter.webp"
     }
 },
@@ -295,7 +295,7 @@
     "fields": {
         "nombre": "Dr. Emmet Brown",
         "especialidad": "Viajes en el Tiempo",
-        "biografia": "¡Gran Scott!",
+        "biografia": "ï¿½Gran Scott!",
         "foto": "cientificos/Emmett_Brown_2.webp"
     }
 },
@@ -304,8 +304,8 @@
     "pk": 7,
     "fields": {
         "nombre": "Dr. Victor Frankenstein",
-        "especialidad": "Reanimación Biológica",
-        "biografia": "Obsesionado con coser partes de gente. Grita mucho '¡ESTÁ VIVO!'.",
+        "especialidad": "Reanimaciï¿½n Biolï¿½gica",
+        "biografia": "Obsesionado con coser partes de gente. Grita mucho 'ï¿½ESTï¿½ VIVO!'.",
         "foto": "cientificos/PodcastCover_Ariel-for-the-DrVictorFrank-1024x1024.jpg"
     }
 },
@@ -314,8 +314,8 @@
     "pk": 8,
     "fields": {
         "nombre": "Profesor Hubert Farnsworth",
-        "especialidad": "Física Cuántica Absurda",
-        "biografia": "Dueño de Planet Express. Inventa cosas inútiles o apocalípticas.",
+        "especialidad": "Fï¿½sica Cuï¿½ntica Absurda",
+        "biografia": "Dueï¿½o de Planet Express. Inventa cosas inï¿½tiles o apocalï¿½pticas.",
         "foto": "cientificos/professor-farnsworth-futurama.webp"
     }
 },
@@ -324,7 +324,7 @@
     "pk": 9,
     "fields": {
         "nombre": "Dr. Jekyll",
-        "especialidad": "Química de la Personalidad",
+        "especialidad": "Quï¿½mica de la Personalidad",
         "biografia": "Tiene serios problemas de ira y cambios de humor repentinos.",
         "foto": "cientificos/Dr-Jekyll-and-Mr-Hyde-Fredric-March.webp"
     }
@@ -334,8 +334,8 @@
     "pk": 10,
     "fields": {
         "nombre": "Dr. Malito",
-        "especialidad": "Dominación Mundial",
-        "biografia": "Pide rescates de 1 millón de dólares. Tiene un gato sin pelo.",
+        "especialidad": "Dominaciï¿½n Mundial",
+        "biografia": "Pide rescates de 1 millï¿½n de dï¿½lares. Tiene un gato sin pelo.",
         "foto": "cientificos/doctor_malito.jpg"
     }
 },
@@ -344,8 +344,8 @@
     "pk": 17,
     "fields": {
         "nombre": "Dr. Otto Octavius",
-        "especialidad": "Fusión Nuclear",
-        "biografia": "Tiene 4 brazos mecánicos y un mal temperamento.",
+        "especialidad": "Fusiï¿½n Nuclear",
+        "biografia": "Tiene 4 brazos mecï¿½nicos y un mal temperamento.",
         "foto": "fotos_cientificos/0f60f404-9c61-4305-894f-acf753dfecd4.jpg"
     }
 },
@@ -474,7 +474,7 @@
     "pk": 15,
     "fields": {
         "cientifico": 2,
-        "nombre": "Asistente Genérico-613",
+        "nombre": "Asistente Genï¿½rico-613",
         "tiene_joroba": false,
         "nivel_lealtad": 2
     }
@@ -594,7 +594,7 @@
     "pk": 27,
     "fields": {
         "cientifico": 4,
-        "nombre": "Número 2-151",
+        "nombre": "Nï¿½mero 2-151",
         "tiene_joroba": true,
         "nivel_lealtad": 4
     }
@@ -664,7 +664,7 @@
     "pk": 34,
     "fields": {
         "cientifico": 7,
-        "nombre": "Asistente Genérico-573",
+        "nombre": "Asistente Genï¿½rico-573",
         "tiene_joroba": true,
         "nivel_lealtad": 2
     }
@@ -734,7 +734,7 @@
     "pk": 41,
     "fields": {
         "cientifico": 9,
-        "nombre": "Asistente Genérico-668",
+        "nombre": "Asistente Genï¿½rico-668",
         "tiene_joroba": false,
         "nivel_lealtad": 5
     }
@@ -794,7 +794,7 @@
     "pk": 47,
     "fields": {
         "cientifico": 10,
-        "nombre": "Número 2-280",
+        "nombre": "Nï¿½mero 2-280",
         "tiene_joroba": true,
         "nivel_lealtad": 3
     }
@@ -863,7 +863,7 @@
     "model": "laboratorio.componente",
     "pk": 1,
     "fields": {
-        "nombre": "Batería de Litio"
+        "nombre": "Baterï¿½a de Litio"
     }
 },
 {
@@ -905,14 +905,14 @@
     "model": "laboratorio.componente",
     "pk": 7,
     "fields": {
-        "nombre": "Plátano"
+        "nombre": "Plï¿½tano"
     }
 },
 {
     "model": "laboratorio.componente",
     "pk": 8,
     "fields": {
-        "nombre": "Láser"
+        "nombre": "Lï¿½ser"
     }
 },
 {
@@ -926,7 +926,7 @@
     "model": "laboratorio.componente",
     "pk": 10,
     "fields": {
-        "nombre": "Tubo de Vacío"
+        "nombre": "Tubo de Vacï¿½o"
     }
 },
 {
@@ -954,35 +954,35 @@
     "model": "laboratorio.componente",
     "pk": 14,
     "fields": {
-        "nombre": "Batería Nuclear"
+        "nombre": "Baterï¿½a Nuclear"
     }
 },
 {
     "model": "laboratorio.componente",
     "pk": 15,
     "fields": {
-        "nombre": "Brazo Robótico"
+        "nombre": "Brazo Robï¿½tico"
     }
 },
 {
     "model": "laboratorio.componente",
     "pk": 16,
     "fields": {
-        "nombre": "Antena Parabólica"
+        "nombre": "Antena Parabï¿½lica"
     }
 },
 {
     "model": "laboratorio.componente",
     "pk": 17,
     "fields": {
-        "nombre": "Imán de Neodimio"
+        "nombre": "Imï¿½n de Neodimio"
     }
 },
 {
     "model": "laboratorio.componente",
     "pk": 18,
     "fields": {
-        "nombre": "Botón Rojo Grande"
+        "nombre": "Botï¿½n Rojo Grande"
     }
 },
 {
@@ -1010,7 +1010,7 @@
     "model": "laboratorio.componente",
     "pk": 22,
     "fields": {
-        "nombre": "Tubo de Rayos Catódicos"
+        "nombre": "Tubo de Rayos Catï¿½dicos"
     }
 },
 {
@@ -1038,7 +1038,7 @@
     "model": "laboratorio.componente",
     "pk": 26,
     "fields": {
-        "nombre": "Antena Parabólica Oxidada"
+        "nombre": "Antena Parabï¿½lica Oxidada"
     }
 },
 {
@@ -1052,14 +1052,14 @@
     "model": "laboratorio.componente",
     "pk": 28,
     "fields": {
-        "nombre": "Brazo Robótico Izquierdo"
+        "nombre": "Brazo Robï¿½tico Izquierdo"
     }
 },
 {
     "model": "laboratorio.componente",
     "pk": 29,
     "fields": {
-        "nombre": "Láser de la Muerte (Mini)"
+        "nombre": "Lï¿½ser de la Muerte (Mini)"
     }
 },
 {
@@ -1146,7 +1146,7 @@
     "model": "laboratorio.invento",
     "pk": 8,
     "fields": {
-        "nombre": "Máquina del Tiempo DeLorean",
+        "nombre": "Mï¿½quina del Tiempo DeLorean",
         "descripcion": "Funciona con basura, viaja a 1955.",
         "probabilidad_exito": 88,
         "foto": "inventos/f3858adf3f8e280295c97e5158fc0aa8.jpg",
@@ -1157,7 +1157,7 @@
     "model": "laboratorio.invento",
     "pk": 9,
     "fields": {
-        "nombre": "Rayo de la Muerte (Láser)",
+        "nombre": "Rayo de la Muerte (Lï¿½ser)",
         "descripcion": "Para escribir el nombre en la luna.",
         "probabilidad_exito": 99,
         "foto": "inventos/rayo-muerte-1.jpg",
@@ -1169,7 +1169,7 @@
     "pk": 10,
     "fields": {
         "nombre": "Oloroscopio",
-        "descripcion": "Permite oler cosas a distancias astronómicas.",
+        "descripcion": "Permite oler cosas a distancias astronï¿½micas.",
         "probabilidad_exito": 10,
         "foto": "inventos/600px-Smell-O-Scope.png",
         "fecha_fabricacion": "2023-01-01"
@@ -1299,7 +1299,7 @@
     "pk": 1,
     "fields": {
         "codigo_activacion": "PERRY",
-        "mensaje_despedida": "¡Maldito seas, Perry el Ornitorrinco!"
+        "mensaje_despedida": "ï¿½Maldito seas, Perry el Ornitorrinco!"
     }
 },
 {
@@ -1307,7 +1307,7 @@
     "pk": 2,
     "fields": {
         "codigo_activacion": "CODE-3878",
-        "mensaje_despedida": "¡Boom!"
+        "mensaje_despedida": "ï¿½Boom!"
     }
 },
 {
@@ -1315,7 +1315,7 @@
     "pk": 3,
     "fields": {
         "codigo_activacion": "CODE-9923",
-        "mensaje_despedida": "¡Boom!"
+        "mensaje_despedida": "ï¿½Boom!"
     }
 },
 {
@@ -1323,7 +1323,7 @@
     "pk": 5,
     "fields": {
         "codigo_activacion": "CODE-7791",
-        "mensaje_despedida": "¡Boom!"
+        "mensaje_despedida": "ï¿½Boom!"
     }
 },
 {
@@ -1331,7 +1331,7 @@
     "pk": 6,
     "fields": {
         "codigo_activacion": "CODE-8187",
-        "mensaje_despedida": "¡Boom!"
+        "mensaje_despedida": "ï¿½Boom!"
     }
 },
 {
@@ -1339,7 +1339,7 @@
     "pk": 7,
     "fields": {
         "codigo_activacion": "DANGER-619",
-        "mensaje_despedida": "¡No debiste presionar eso!"
+        "mensaje_despedida": "ï¿½No debiste presionar eso!"
     }
 },
 {
@@ -1347,7 +1347,7 @@
     "pk": 8,
     "fields": {
         "codigo_activacion": "DANGER-482",
-        "mensaje_despedida": "¡No debiste presionar eso!"
+        "mensaje_despedida": "ï¿½No debiste presionar eso!"
     }
 },
 {
@@ -1355,7 +1355,7 @@
     "pk": 9,
     "fields": {
         "codigo_activacion": "DANGER-688",
-        "mensaje_despedida": "¡No debiste presionar eso!"
+        "mensaje_despedida": "ï¿½No debiste presionar eso!"
     }
 },
 {
@@ -1363,7 +1363,7 @@
     "pk": 10,
     "fields": {
         "codigo_activacion": "DANGER-337",
-        "mensaje_despedida": "¡No debiste presionar eso!"
+        "mensaje_despedida": "ï¿½No debiste presionar eso!"
     }
 },
 {
