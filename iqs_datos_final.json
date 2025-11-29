@@ -31,16 +31,6 @@
 },
 {
     "model": "laboratorio.materialsospechoso",
-    "pk": 4,
-    "fields": {
-        "nombre": "Ectoplasma",
-        "nivel_peligro": "MEDIO",
-        "es_ilegal": false,
-        "stock_gramos": "15.00"
-    }
-},
-{
-    "model": "laboratorio.materialsospechoso",
     "pk": 5,
     "fields": {
         "nombre": "Veneno de Cobra",
@@ -150,6 +140,116 @@
     }
 },
 {
+    "model": "laboratorio.materialsospechoso",
+    "pk": 16,
+    "fields": {
+        "nombre": "Plutonio Refinado",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": true,
+        "stock_gramos": "2340.71"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 17,
+    "fields": {
+        "nombre": "Ectoplasma Viscoso",
+        "nivel_peligro": "MEDIO",
+        "es_ilegal": false,
+        "stock_gramos": "189.23"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 18,
+    "fields": {
+        "nombre": "Vibranium Líquido",
+        "nivel_peligro": "EXTREMO",
+        "es_ilegal": true,
+        "stock_gramos": "4338.12"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 20,
+    "fields": {
+        "nombre": "Uranio Empobrecido",
+        "nivel_peligro": "MEDIO",
+        "es_ilegal": false,
+        "stock_gramos": "3031.30"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 21,
+    "fields": {
+        "nombre": "Materia Oscura Concentrada",
+        "nivel_peligro": "EXTREMO",
+        "es_ilegal": true,
+        "stock_gramos": "3638.06"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 22,
+    "fields": {
+        "nombre": "Kryptonita Verde",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": true,
+        "stock_gramos": "2389.01"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 23,
+    "fields": {
+        "nombre": "Aceite de Serpiente",
+        "nivel_peligro": "BAJO",
+        "es_ilegal": false,
+        "stock_gramos": "3595.07"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 24,
+    "fields": {
+        "nombre": "Mutágeno T-Virus",
+        "nivel_peligro": "EXTREMO",
+        "es_ilegal": true,
+        "stock_gramos": "4915.69"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 25,
+    "fields": {
+        "nombre": "Ectoplasma",
+        "nivel_peligro": "MEDIO",
+        "es_ilegal": false,
+        "stock_gramos": "40.15"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 26,
+    "fields": {
+        "nombre": "Polvo de Hadas",
+        "nivel_peligro": "ALTO",
+        "es_ilegal": true,
+        "stock_gramos": "50.80"
+    }
+},
+{
+    "model": "laboratorio.materialsospechoso",
+    "pk": 27,
+    "fields": {
+        "nombre": "Materia Oscura",
+        "nivel_peligro": "EXTREMO",
+        "es_ilegal": true,
+        "stock_gramos": "4.76"
+    }
+},
+{
     "model": "laboratorio.cientifico",
     "pk": 2,
     "fields": {
@@ -237,6 +337,16 @@
         "especialidad": "Dominación Mundial",
         "biografia": "Pide rescates de 1 millón de dólares. Tiene un gato sin pelo.",
         "foto": "cientificos/doctor_malito.jpg"
+    }
+},
+{
+    "model": "laboratorio.cientifico",
+    "pk": 17,
+    "fields": {
+        "nombre": "Dr. Otto Octavius",
+        "especialidad": "Fusión Nuclear",
+        "biografia": "Tiene 4 brazos mecánicos y un mal temperamento.",
+        "foto": "fotos_cientificos/0f60f404-9c61-4305-894f-acf753dfecd4.jpg"
     }
 },
 {
@@ -710,6 +820,46 @@
     }
 },
 {
+    "model": "laboratorio.esbirro",
+    "pk": 61,
+    "fields": {
+        "cientifico": 17,
+        "nombre": "Kevin 40",
+        "tiene_joroba": true,
+        "nivel_lealtad": 5
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 62,
+    "fields": {
+        "cientifico": 17,
+        "nombre": "Bob 68",
+        "tiene_joroba": true,
+        "nivel_lealtad": 1
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 63,
+    "fields": {
+        "cientifico": 17,
+        "nombre": "Norm 7",
+        "tiene_joroba": false,
+        "nivel_lealtad": 9
+    }
+},
+{
+    "model": "laboratorio.esbirro",
+    "pk": 64,
+    "fields": {
+        "cientifico": 17,
+        "nombre": "Frankenstein Jr. 62",
+        "tiene_joroba": false,
+        "nivel_lealtad": 9
+    }
+},
+{
     "model": "laboratorio.componente",
     "pk": 1,
     "fields": {
@@ -850,6 +1000,83 @@
     }
 },
 {
+    "model": "laboratorio.componente",
+    "pk": 21,
+    "fields": {
+        "nombre": "Condensador de Flujo"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 22,
+    "fields": {
+        "nombre": "Tubo de Rayos Catódicos"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 23,
+    "fields": {
+        "nombre": "Cristal Kyber"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 24,
+    "fields": {
+        "nombre": "Pila Nuclear de Bolsillo"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 25,
+    "fields": {
+        "nombre": "Engranaje de Adamantium"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 26,
+    "fields": {
+        "nombre": "Antena Parabólica Oxidada"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 27,
+    "fields": {
+        "nombre": "Cerebro en Frasco"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 28,
+    "fields": {
+        "nombre": "Brazo Robótico Izquierdo"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 29,
+    "fields": {
+        "nombre": "Láser de la Muerte (Mini)"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 30,
+    "fields": {
+        "nombre": "Generador de Portales"
+    }
+},
+{
+    "model": "laboratorio.componente",
+    "pk": 31,
+    "fields": {
+        "nombre": "Nanobots"
+    }
+},
+{
     "model": "laboratorio.invento",
     "pk": 1,
     "fields": {
@@ -879,17 +1106,6 @@
         "descripcion": "Quema cosas.",
         "probabilidad_exito": 85,
         "foto": "inventos/Dr.-Doofenshmirtz-in-Phineas-and-Ferb.jpg",
-        "fecha_fabricacion": "2025-11-26"
-    }
-},
-{
-    "model": "laboratorio.invento",
-    "pk": 4,
-    "fields": {
-        "nombre": "Rayo Evolucionador",
-        "descripcion": "Convierte animales en mutantes.",
-        "probabilidad_exito": 40,
-        "foto": "inventos/pngtree-lightning-strike-on-a-black-background-picture-image_2664765.png",
         "fecha_fabricacion": "2025-11-26"
     }
 },
@@ -960,307 +1176,120 @@
     }
 },
 {
-    "model": "laboratorio.receta",
-    "pk": 1,
+    "model": "laboratorio.invento",
+    "pk": 12,
     "fields": {
-        "invento": 1,
+        "nombre": "Rayo Hipnotizador",
+        "descripcion": "Un rayo que hipnotiza humanos, animales y aliens.",
+        "probabilidad_exito": 99,
+        "foto": "fotos_inventos/bbbf3e20-7b11-40b8-9163-8e1d2c4e5646.webp",
+        "fecha_fabricacion": "2025-11-28"
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 38,
+    "fields": {
+        "invento": 9,
         "componente": 1,
         "cantidad": 2
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 2,
+    "pk": 39,
     "fields": {
-        "invento": 2,
-        "componente": 2,
-        "cantidad": 2
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 3,
-    "fields": {
-        "invento": 2,
-        "componente": 3,
-        "cantidad": 1
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 4,
-    "fields": {
-        "invento": 3,
-        "componente": 4,
-        "cantidad": 8
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 5,
-    "fields": {
-        "invento": 3,
-        "componente": 2,
-        "cantidad": 5
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 6,
-    "fields": {
-        "invento": 4,
-        "componente": 2,
-        "cantidad": 3
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 7,
-    "fields": {
-        "invento": 4,
-        "componente": 6,
-        "cantidad": 3
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 8,
-    "fields": {
-        "invento": 5,
-        "componente": 2,
-        "cantidad": 6
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 9,
-    "fields": {
-        "invento": 5,
-        "componente": 14,
-        "cantidad": 8
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 10,
-    "fields": {
-        "invento": 6,
-        "componente": 3,
-        "cantidad": 10
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 11,
-    "fields": {
-        "invento": 6,
-        "componente": 6,
-        "cantidad": 7
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 12,
-    "fields": {
-        "invento": 2,
-        "componente": 8,
-        "cantidad": 1
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 13,
-    "fields": {
-        "invento": 7,
-        "componente": 6,
-        "cantidad": 9
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 14,
-    "fields": {
-        "invento": 7,
-        "componente": 20,
-        "cantidad": 8
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 15,
-    "fields": {
-        "invento": 7,
-        "componente": 11,
-        "cantidad": 7
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 16,
-    "fields": {
-        "invento": 8,
-        "componente": 3,
-        "cantidad": 9
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 17,
-    "fields": {
-        "invento": 8,
-        "componente": 2,
-        "cantidad": 9
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 18,
-    "fields": {
-        "invento": 8,
+        "invento": 9,
         "componente": 9,
-        "cantidad": 3
+        "cantidad": 1
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 19,
+    "pk": 40,
     "fields": {
         "invento": 9,
-        "componente": 10,
-        "cantidad": 7
+        "componente": 7,
+        "cantidad": 1
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 20,
+    "pk": 41,
     "fields": {
-        "invento": 9,
-        "componente": 12,
-        "cantidad": 2
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 21,
-    "fields": {
-        "invento": 9,
-        "componente": 16,
-        "cantidad": 10
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 22,
-    "fields": {
-        "invento": 10,
-        "componente": 13,
-        "cantidad": 7
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 23,
-    "fields": {
-        "invento": 10,
-        "componente": 4,
-        "cantidad": 6
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 24,
-    "fields": {
-        "invento": 10,
-        "componente": 3,
-        "cantidad": 7
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 25,
-    "fields": {
-        "invento": 3,
+        "invento": 6,
         "componente": 18,
         "cantidad": 1
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 26,
-    "fields": {
-        "invento": 4,
-        "componente": 16,
-        "cantidad": 1
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 27,
-    "fields": {
-        "invento": 5,
-        "componente": 19,
-        "cantidad": 1
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 29,
+    "pk": 42,
     "fields": {
         "invento": 1,
-        "componente": 13,
+        "componente": 8,
         "cantidad": 1
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 30,
+    "pk": 43,
     "fields": {
-        "invento": 2,
-        "componente": 4,
+        "invento": 1,
+        "componente": 20,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 48,
+    "fields": {
+        "invento": 5,
+        "componente": 11,
+        "cantidad": 1
+    }
+},
+{
+    "model": "laboratorio.receta",
+    "pk": 49,
+    "fields": {
+        "invento": 12,
+        "componente": 1,
         "cantidad": 10
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 31,
+    "pk": 50,
     "fields": {
-        "invento": 8,
-        "componente": 19,
+        "invento": 12,
+        "componente": 3,
         "cantidad": 1
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 32,
+    "pk": 51,
     "fields": {
-        "invento": 9,
+        "invento": 12,
         "componente": 9,
         "cantidad": 1
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 33,
+    "pk": 52,
     "fields": {
-        "invento": 10,
-        "componente": 15,
+        "invento": 12,
+        "componente": 16,
         "cantidad": 1
     }
 },
 {
     "model": "laboratorio.receta",
-    "pk": 34,
+    "pk": 53,
     "fields": {
-        "invento": 7,
-        "componente": 15,
-        "cantidad": 1
-    }
-},
-{
-    "model": "laboratorio.receta",
-    "pk": 35,
-    "fields": {
-        "invento": 3,
+        "invento": 12,
         "componente": 18,
         "cantidad": 1
     }
@@ -1286,14 +1315,6 @@
     "pk": 3,
     "fields": {
         "codigo_activacion": "CODE-9923",
-        "mensaje_despedida": "¡Boom!"
-    }
-},
-{
-    "model": "laboratorio.protocoloautodestruccion",
-    "pk": 4,
-    "fields": {
-        "codigo_activacion": "CODE-4383",
         "mensaje_despedida": "¡Boom!"
     }
 },
@@ -1350,7 +1371,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$1000000$ornHGoIbqUjoyYZ9C1pjx2$Ct3JxdXqL0eX6EwQRNf6aZMbLDsfojvnAApqfFPJa3Y=",
-        "last_login": "2025-11-26T04:16:13.607Z",
+        "last_login": "2025-11-29T00:09:47.002Z",
         "is_superuser": true,
         "username": "root",
         "first_name": "",

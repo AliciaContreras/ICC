@@ -1,130 +1,153 @@
 # 🧪 Instituto de Ciencia Cuestionable (I.C.C.)
 
 > **Sistema de Gestión Integral para Laboratorios de Dudosa Ética**
-> *Proyecto de Portafolio — Backend con Django*
+> *Proyecto de Portafolio --- Backend con Django + Frontend Interactivo*
 
-![Django](https://img.shields.io/badge/Django-5.0-092E20?style=for-the-badge\&logo=django\&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge\&logo=python\&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge\&logo=postgresql\&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-5-563D7C?style=for-the-badge\&logo=bootstrap\&logoColor=white)
+![Django](https://img.shields.io/badge/Django-5.0-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Cyberpunk](https://img.shields.io/badge/Theme-Cyberpunk-bc13fe?style=for-the-badge&logo=dependabot&logoColor=white)
 
----
+------------------------------------------------------------------------
 
 ## 📋 Descripción del proyecto
 
-Aplicación web desarrollada en **Django** siguiendo la arquitectura **MVT (Modelo — Vista — Template)**. Su objetivo es administrar recursos críticos de un laboratorio: inventarios (incluso materiales peligrosos), gestión de personal, y experimentos. Incluye interfaz moderna (Dark Mode), gestión de imágenes y una base de datos relacional bien estructurada.
+Aplicación web desarrollada en **Django** siguiendo la arquitectura
+**MVT**. Su objetivo es administrar recursos críticos de un laboratorio
+"Mad Science": inventarios de materiales peligrosos, gestión de personal
+(científicos y esbirros) y prototipos inestables.
 
----
+El proyecto ha evolucionado de un CRUD estándar a una **experiencia
+inmersiva** con una interfaz temática **Cyberpunk/Sci-Fi**,
+interactividad en tiempo real mediante JavaScript y un backend
+optimizado y seguro.
 
-## ✅ Características principales
+------------------------------------------------------------------------
 
-* **Modelado de datos avanzado**
+## 🚀 Nuevas Características y Mejoras
 
-  * Entidades: `Materiales`, `Científicos`, `Esbirros`, `Inventos`, `Componentes`, `Protocolos`.
-  * Relaciones 1:N: Científico → Esbirros.
-  * Relaciones N:N: Inventos ↔ Componentes mediante tabla intermedia `Receta` (control de cantidades).
-  * Relaciones 1:1: Protocolo de seguridad único por Invento.
+### 🎨 Experiencia de Usuario (UX/UI)
 
-* **CRUD y vistas**
+-   **Identidad Visual Cyberpunk:** Tema oscuro personalizado con paleta
+    de colores neón (Verde/Morado), fuentes tecnológicas (*Orbitron*,
+    *Share Tech Mono*) y fondo de grilla.
+-   **Efectos Visuales Avanzados:** Animaciones CSS de **Glitch** en
+    títulos, efecto de **monitor CRT** (scanlines), y **Glow
+    radiactivo** en botones interactivos.
+-   **Simulador de Mezclas:** Minijuego en la página de inicio
+    (JavaScript + JSON Django) que permite simular la creación de
+    elementos utilizando datos reales de la base de datos sin necesidad
+    de login.
+-   **Feedback Inmersivo:** Animaciones de "Temblor de pantalla"
+    (`Shake`) al eliminar registros o fallar experimentos.
 
-  * Operaciones completas (Crear, Leer, Actualizar, Eliminar) para todos los modelos.
-  * Formularios avanzados: `ModelForms` e `InlineFormsets` para editar Inventos y sus Componentes en una sola pantalla.
-  * Consultas optimizadas: uso de `select_related`, `prefetch_related`, `annotate` y, cuando procede, SQL crudo para reportes.
+### 🛠️ Arquitectura y Backend
 
-* **Seguridad y UX**
+-   **Optimización de Consultas:** Solución al problema *N+1* mediante
+    `prefetch_related` y `select_related`, reduciendo drásticamente la
+    carga en el dashboard.
+-   **Integridad de Datos:** Restricciones `unique_together` en modelos
+    intermedios para evitar duplicidad de componentes.
+-   **Namespacing:** Implementación de `app_name = 'laboratorio'` para
+    un enrutamiento robusto y escalable.
+-   **Gestión de Archivos:** Renombrado automático de imágenes mediante
+    UUID para evitar colisiones.
 
-  * Autenticación y protección de vistas (`@login_required`).
-  * Mensajería (toasts) para feedback de acciones.
-  * Diseño responsivo con Bootstrap 5 y tema oscuro.
+------------------------------------------------------------------------
 
----
+## 📄 Documentación Técnica
+
+Para ver el detalle técnico de la refactorización, depuración de errores
+y mejoras de código aplicadas, consulta el archivo:\
+👉 **CORRECCIONES_Y\_MEJORAS.md**
+
+------------------------------------------------------------------------
 
 ## ⚙️ Requisitos
 
-* Python 3.10+
-* Django 5.x
-* PostgreSQL 14/15/16
-* Dependencias listadas en `requirements.txt`
+-   Python 3.10+\
+-   Django 5.x\
+-   PostgreSQL 14+\
+-   Dependencias listadas en `requirements.txt`
 
----
+------------------------------------------------------------------------
 
-## 🚀 Instalación (local)
+## 🔧 Instalación y Despliegue
 
-Sigue estos pasos para ejecutar el proyecto en tu máquina local.
+Sigue estos pasos para ejecutar el proyecto con todas sus nuevas
+funcionalidades.
 
-```bash
-# Clonar el repositorio
+``` bash
+# 1. Clonar el repositorio
 git clone <URL_DE_TU_REPOSITORIO>
 cd iqs_project
 
-# Crear y activar entorno virtual
+# 2. Crear y activar entorno virtual
 python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# macOS / Linux
+# Windows:
+.env\Scriptsctivate
+# Mac/Linux:
 source venv/bin/activate
 
-# Instalar dependencias
+# 3. Instalar dependencias
 pip install -r requirements.txt
 ```
 
-### Configurar base de datos (PostgreSQL)
+### Configuración de Base de Datos
 
-1. Crea la base de datos (ejemplo):
+Crea la base en PostgreSQL:
 
-```sql
+``` sql
 CREATE DATABASE iqs_db;
 ```
 
-2. Ajusta las credenciales en `mad_science/settings.py` (variables: `DATABASES`, `USER`, `PASSWORD`, `HOST`, `PORT`).
+Ajusta las credenciales en `mad_science/settings.py`.
 
-3. Ejecuta migraciones:
+Ejecuta las migraciones:
 
-```bash
+``` bash
 python manage.py migrate
 ```
 
-4. (Opcional) Cargar datos de ejemplo:
+------------------------------------------------------------------------
 
-```bash
-python manage.py loaddata iqs_datos.json
+## 🧪 Poblado de Datos (Script Unificado)
+
+Olvídate de cargar JSONs antiguos. Se creó un script maestro que genera
+científicos, materiales, componentes, inventos y recluta esbirros
+automáticamente:
+
+``` bash
+python poblar_lab.py
 ```
 
----
+------------------------------------------------------------------------
 
 ## ▶️ Uso del sistema
 
-```bash
-# Iniciar servidor de desarrollo
+``` bash
 python manage.py runserver
 ```
 
-Accede en el navegador: `http://127.0.0.1:8000/`
+Accede: http://127.0.0.1:8000/
 
-* Usuario admin: el que viene en `iqs_datos.json` o crea uno nuevo con:
+------------------------------------------------------------------------
 
-```bash
-python manage.py createsuperuser
-```
+## 📂 Estructura del proyecto
 
----
-
-## 📂 Estructura del proyecto (resumen)
-
-```
+``` text
 iqs_project/
-├── mad_science/            # Configuración del proyecto (settings, urls)
-├── laboratorio/            # App principal
-│   ├── migrations/         # Historial de migraciones
-│   ├── templates/          # Plantillas HTML
-│   ├── static/             # CSS, JS, imágenes
-│   ├── admin.py            # Config admin
-│   ├── forms.py            # Formularios y formsets
-│   ├── models.py           # Modelos de datos
-│   ├── urls.py             # Rutas de la app
-│   └── views.py            # Lógica y controladores
-├── media/                  # Archivos subidos por usuarios
-├── iqs_datos.json          # Backup con datos de ejemplo
-├── poblar_masivo.py        # Script para generación masiva de datos
-└── manage.py               # Comandos de Django
+├── mad_science/
+├── laboratorio/
+│   ├── static/
+│   ├── templates/
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   └── ...
+├── media/
+├── poblar_lab.py
+├── CORRECCIONES_Y_MEJORAS.md
+└── manage.py
 ```
